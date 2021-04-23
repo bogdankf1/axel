@@ -29,29 +29,13 @@ export const getQuestionsByCategory = (category_id: string) =>
 export const addQuestion = (title: string, content: string, category_id: string) =>
   client.post<AddQuestionResponse>(`posts/${category_id}`, { title, content })
 
-export const addComment = (text: string, accessToken: string, post_id: string) =>
-  client.post<AddCommentResponse>(
-    `comments/${post_id}`,
-    { text },
-    // {
-    //   headers: {
-    //     Authorization: `Bearer ${accessToken}`,
-    //   },
-    // },
-  )
+export const addComment = (text: string, post_id: string) =>
+  client.post<AddCommentResponse>(`comments/${post_id}`, { text })
 
 export const getTopQuestions = () => client.get<GetTopQuestionsResponse>(`top10`)
 
-export const setLikeToQuestions = (post_id: string, accessToken: string) =>
-  client.post<SetLikeToQuestionsResponse>(
-    `like/${post_id}`,
-    {},
-    {
-      // headers: {
-      //   Authorization: `Bearer ${accessToken}`,
-      // },
-    },
-  )
+export const setLikeToQuestions = (post_id: string) =>
+  client.post<SetLikeToQuestionsResponse>(`like/${post_id}`, {})
 
 export const getComments = (post_id: string) =>
   client.get<GetCommentsResponse>(`comments/${post_id}`)

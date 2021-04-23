@@ -1,4 +1,3 @@
-
 import { PolyglotOptions } from 'node-polyglot'
 import { RApp } from '../app/app/reducer'
 import { RAuth } from '../app/auth/reducer'

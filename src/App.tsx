@@ -6,13 +6,13 @@ import styled from 'styled-components/native'
 import { configureStore } from './store/configureStore'
 import { startup } from './app/app/actions'
 import LoaderModal from './ui/components/Loader/Loader'
-import { getAllLoadingFields } from './utils/helpers'
+import { getIsLoading } from './utils/helpers'
 import colors from './ui/theme/colors'
 import { AppNavigator } from './navigation/AppNavigator'
 
 const App = () => {
   const dispatch = useDispatch()
-  const isLoading = useSelector(getAllLoadingFields)
+  const isLoading = useSelector(getIsLoading)
 
   useEffect(() => {
     SplashScreen.hide()

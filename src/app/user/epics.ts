@@ -1,27 +1,20 @@
 import { Epic } from 'redux-observable'
 import { mergeMap } from 'rxjs/operators'
-import {
-  UserActionTypes,
-  GetUserAction
-} from './actionTypes'
-import {
-  getUserSuccess,
-  getUserFail
-} from './actions'
+import { UserActionTypes } from './actionTypes'
+import { getUserSuccess, getUserFail } from './actions'
 import userApi from '../../api/user'
 
-export const getUserEpic: Epic = (action$) => {
-  return action$.ofType(UserActionTypes.GET_USER)
-    .pipe(mergeMap(async (action: GetUserAction) => {
+export const getUserEpic: Epic = action$ => {
+  return action$.ofType(UserActionTypes.GET_USER).pipe(
+    mergeMap(async () => {
       try {
-        const response = await userApi.getUser(action.payload.accessToken)
+        const response = await userApi.getUser()
         return getUserSuccess(response.data.data)
       } catch (e) {
         return getUserFail(e)
       }
-    }))
+    }),
+  )
 }
 
-export default [
-  getUserEpic
-]
+export default [getUserEpic]

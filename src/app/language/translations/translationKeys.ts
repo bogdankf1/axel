@@ -1,5 +1,5 @@
-const fields =  {
-  STUDENT_LAUNCHER: 'student-launcher',
+const fields = {
+  APP_NAME: 'student-launcher',
   SIGN_IN: 'sign-in',
   SIGN_UP: 'sign-up',
   USERNAME: 'username',
@@ -23,7 +23,7 @@ const fields =  {
   PASSWORDS_SHOULD_MATCH: 'passwords-should-match',
   PLEASE_FILL_ALL_FIELDS: 'please-fill-all-fields',
   PLEASE_ENTER_CORRECT_NAME: 'please-enter-correct-name',
-  INCORRECT_USERNAME: 'incorrect-username'
+  INCORRECT_USERNAME: 'incorrect-username',
 }
 
 export default fields

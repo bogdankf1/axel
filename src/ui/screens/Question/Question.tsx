@@ -1,5 +1,5 @@
 import React, { useState, memo, useCallback, useMemo } from 'react'
-import { useNavigation } from '@react-navigation/core'
+// import { useNavigation } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
@@ -15,13 +15,13 @@ import { userSelector } from '../../../app/user/selectors'
 import { addComment, setLike } from '../../../app/questions/actions'
 import { selectedCategorySelector } from '../../../app/categories/selectors'
 import { accessTokenSelector } from '../../../app/auth/selectors'
-import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
-import {
-  SelectCategoryScreenTitleBox,
-  SelectCategoryScreenTitle,
-  BackIconBox,
-  BackIcon,
-} from '../SelectCategory/styles'
+// import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
+// import {
+//   SelectCategoryScreenTitleBox,
+//   SelectCategoryScreenTitle,
+//   BackIconBox,
+//   BackIcon,
+// } from '../SelectCategory/styles'
 import {
   QuestionScreenWrapper,
   QuestionTextBox,
@@ -39,7 +39,7 @@ import {
 
 const QuestionScreen = () => {
   const dispatch = useDispatch()
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
   const t = useSelector(translateFunctionSelector)
   const user = useSelector(userSelector)
   const accessToken = useSelector(accessTokenSelector)
@@ -53,15 +53,15 @@ const QuestionScreen = () => {
       return false
     }
 
-    dispatch(addComment(newComment, accessToken, selectedQuestion._id))
+    dispatch(addComment(newComment, selectedCategory._id, selectedQuestion._id))
     setNewComment('')
   }, [accessToken, newComment, selectedQuestion])
   const onChangeNewComment = useCallback((newComment: string) => {
     setNewComment(newComment)
   }, [])
-  const goToQuestionsScreen = useCallback(() => {
-    navigation.navigate(SCREEN_NAMES.CATEGORY_QUESTIONS)
-  }, [])
+  // const goToQuestionsScreen = useCallback(() => {
+  //   navigation.navigate(SCREEN_NAMES.CATEGORY_QUESTIONS)
+  // }, [])
   const handleLikesPress = useCallback(() => {
     dispatch(setLike(selectedCategory._id, selectedQuestion._id, accessToken))
   }, [selectedCategory, selectedQuestion, accessToken])
@@ -71,12 +71,12 @@ const QuestionScreen = () => {
   return (
     <ScreenWithScrollWrapper>
       <QuestionScreenWrapper>
-        <SelectCategoryScreenTitleBox>
+        {/* <SelectCategoryScreenTitleBox>
           <BackIconBox onPress={goToQuestionsScreen}>
             <BackIcon source={images.expandArrow} />
           </BackIconBox>
           <SelectCategoryScreenTitle>{t(fields.QUESTION)}</SelectCategoryScreenTitle>
-        </SelectCategoryScreenTitleBox>
+        </SelectCategoryScreenTitleBox> */}
         <QuestionTextBox>
           <QuestionText>{selectedQuestion.title}</QuestionText>
           <QuestionLikesContainer onPress={handleLikesPress}>

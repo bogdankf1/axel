@@ -91,13 +91,13 @@ export const selectQuestion = (question: QuestionItem): SelectQuestionAction => 
 
 export const addComment = (
   text: string,
-  accessToken: string,
+  category_id: string,
   post_id: string,
 ): AddCommentAction => ({
   type: QuestionsActionTypes.ADD_COMMENT,
   payload: {
     text,
-    accessToken,
+    category_id,
     post_id,
   },
 })

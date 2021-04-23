@@ -5,17 +5,17 @@ import { QuestionItem } from '../../../interfaces'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
 import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
-import { selectedCategorySelector } from '../../../app/categories/selectors'
+// import { selectedCategorySelector } from '../../../app/categories/selectors'
 import { questionsListSelector } from '../../../app/questions/selectors'
 import { selectQuestion, getComments } from '../../../app/questions/actions'
-import images from '../../theme/images'
+// import images from '../../theme/images'
 import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
-import { BackIconBox, BackIcon } from '../SelectCategory/styles'
+// import { BackIconBox, BackIcon } from '../SelectCategory/styles'
 import CategoryQuestionsList from './CategoryQuestionsList'
 import {
   CategoryQuestionsScreenWrapper,
-  CategoryQuestionsScreenTitleBox,
-  CategoryQuestionsScreenTitle,
+  // CategoryQuestionsScreenTitleBox,
+  // CategoryQuestionsScreenTitle,
   AddNewQuestionBox,
   AddNewQuestionBoxIcon,
   AddNewQuestionBoxIconText,
@@ -26,7 +26,7 @@ const CategoryQuestions = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
   const t = useSelector(translateFunctionSelector)
-  const selectedCategory = useSelector(selectedCategorySelector)
+  // const selectedCategory = useSelector(selectedCategorySelector)
   const questions = useSelector(questionsListSelector)
 
   const goToAddNewQuestionsScreen = useCallback(() => {
@@ -37,18 +37,18 @@ const CategoryQuestions = () => {
     dispatch(getComments(question._id))
     navigation.navigate(SCREEN_NAMES.QUESTION)
   }, [])
-  const goToSelectCategoryScreen = useCallback(() => {
-    navigation.navigate(SCREEN_NAMES.SELECT_CATEGORY)
-  }, [])
+  // const goToSelectCategoryScreen = useCallback(() => {
+  //   navigation.navigate(SCREEN_NAMES.SELECT_CATEGORY)
+  // }, [])
   return (
     <ScreenWithScrollWrapper>
       <CategoryQuestionsScreenWrapper>
-        <CategoryQuestionsScreenTitleBox>
+        {/* <CategoryQuestionsScreenTitleBox>
           <BackIconBox onPress={goToSelectCategoryScreen}>
             <BackIcon source={images.expandArrow} />
           </BackIconBox>
           <CategoryQuestionsScreenTitle>{selectedCategory.title}</CategoryQuestionsScreenTitle>
-        </CategoryQuestionsScreenTitleBox>
+        </CategoryQuestionsScreenTitleBox> */}
         <AddNewQuestionBox onPress={goToAddNewQuestionsScreen}>
           <AddNewQuestionBoxIcon>
             <AddNewQuestionBoxIconText>{'+'}</AddNewQuestionBoxIconText>
