@@ -19,7 +19,7 @@ export enum QuestionsActionTypes {
   SET_LIKE_FAIL = 'SET_LIKE_FAIL',
   GET_COMMENTS = 'GET_COMMENTS',
   GET_COMMENTS_SUCCESS = 'GET_COMMENTS_SUCCESS',
-  GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL'
+  GET_COMMENTS_FAIL = 'GET_COMMENTS_FAIL',
 }
 
 export interface GetQuestionsAction {
@@ -78,7 +78,6 @@ export interface AddCommentAction {
   type: QuestionsActionTypes.ADD_COMMENT
   payload: {
     text: string
-    accessToken: string
     category_id: string
     post_id: string
   }

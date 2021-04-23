@@ -12,5 +12,5 @@ export default combineReducers({
   auth: authReducer,
   categories: categoriesReducer,
   questions: questionsReducer,
-  user: userReducer
+  user: userReducer,
 })

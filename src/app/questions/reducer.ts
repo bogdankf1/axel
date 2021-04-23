@@ -15,7 +15,7 @@ import {
   SetLikeFailAction,
   GetCommentsAction,
   GetCommentsSuccessAction,
-  GetCommentsFailAction
+  GetCommentsFailAction,
 } from './actionTypes'
 import { QuestionItem, QuestionComment } from '../../interfaces'
 
@@ -29,22 +29,22 @@ export interface RQuestions {
 }
 
 type QuestionsActions =
-  GetQuestionsAction |
-  GetQuestionsSuccessAction |
-  GetQuestionsFailAction |
-  AddQuestionAction |
-  AddQuestionSuccessAction |
-  AddQuestionFailAction |
-  SelectQuestionAction |
-  GetTopQuestionsAction |
-  GetTopQuestionsSuccessAction |
-  GetTopQuestionsFailAction |
-  SetLikeAction |
-  SetLikeSuccessAction |
-  SetLikeFailAction |
-  GetCommentsAction |
-  GetCommentsSuccessAction |
-  GetCommentsFailAction
+  | GetQuestionsAction
+  | GetQuestionsSuccessAction
+  | GetQuestionsFailAction
+  | AddQuestionAction
+  | AddQuestionSuccessAction
+  | AddQuestionFailAction
+  | SelectQuestionAction
+  | GetTopQuestionsAction
+  | GetTopQuestionsSuccessAction
+  | GetTopQuestionsFailAction
+  | SetLikeAction
+  | SetLikeSuccessAction
+  | SetLikeFailAction
+  | GetCommentsAction
+  | GetCommentsSuccessAction
+  | GetCommentsFailAction
 
 export const initialQuestions = (): RQuestions => ({
   loading: false,
@@ -55,18 +55,22 @@ export const initialQuestions = (): RQuestions => ({
     content: '',
     likes: 0,
     comments: [],
-    _id: ''
+    _id: '',
   },
   topList: [],
-  currentQuestionComments: []
+  currentQuestionComments: [],
 })
 
-const questionsReducer = (state =  initialQuestions(), action: QuestionsActions): RQuestions => {
+const questionsReducer = (state = initialQuestions(), action: QuestionsActions): RQuestions => {
   switch (action.type) {
     case QuestionsActionTypes.GET_QUESTIONS:
       return { ...state, loading: true }
     case QuestionsActionTypes.GET_QUESTIONS_SUCCESS:
-      return { ...state, loading: false, list: action.payload.list.filter(item => item.title).reverse() }
+      return {
+        ...state,
+        loading: false,
+        list: action.payload.list.filter(item => item.title).reverse(),
+      }
     case QuestionsActionTypes.GET_QUESTIONS_FAIL:
       return { ...state, loading: false, error: action.payload.message }
     case QuestionsActionTypes.ADD_QUESTION:
@@ -86,13 +90,17 @@ const questionsReducer = (state =  initialQuestions(), action: QuestionsActions)
     case QuestionsActionTypes.SET_LIKE:
       return { ...state, loading: true }
     case QuestionsActionTypes.SET_LIKE_SUCCESS:
-      return { ...state, loading: false}
+      return { ...state, loading: false }
     case QuestionsActionTypes.SET_LIKE_FAIL:
       return { ...state, loading: false, error: action.payload.message }
     case QuestionsActionTypes.GET_COMMENTS:
       return { ...state, loading: true }
     case QuestionsActionTypes.GET_COMMENTS_SUCCESS:
-      return { ...state, loading: false, currentQuestionComments: action.payload.comments.reverse() }
+      return {
+        ...state,
+        loading: false,
+        currentQuestionComments: action.payload.comments.reverse(),
+      }
     case QuestionsActionTypes.GET_COMMENTS_FAIL:
       return { ...state, loading: false, error: action.payload.message }
     default:

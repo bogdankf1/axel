@@ -1,8 +1,8 @@
 interface InterpolationOptions {
-  smart_count?: number | { length: number };
-  _?: string;
+  smart_count?: number | { length: number }
+  _?: string
 
-  [interpolationKey: string]: any;
+  [interpolationKey: string]: any
 }
 
-export type translateFunction  = (phrase: string, options?: number | InterpolationOptions) => string
+export type translateFunction = (phrase: string, options?: number | InterpolationOptions) => string

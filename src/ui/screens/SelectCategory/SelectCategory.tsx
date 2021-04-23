@@ -8,19 +8,19 @@ import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/Sc
 import { categoriesListSelector } from '../../../app/categories/selectors'
 import { selectCategory } from '../../../app/categories/actions'
 import { getQuestions } from '../../../app/questions/actions'
-import images from '../../theme/images'
+// import images from '../../theme/images'
 import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
 import SelectCategoryList from './SelectCategoryList'
 import {
   SelectCategoryScreenWrapper,
-  SelectCategoryScreenTitleBox,
-  SelectCategoryScreenTitle,
+  // SelectCategoryScreenTitleBox,
+  // SelectCategoryScreenTitle,
   AddNewCategoryBox,
   AddNewCategoryBoxIcon,
   AddNewCategoryBoxIconText,
   AddNewCategoryBoxText,
-  BackIconBox,
-  BackIcon,
+  // BackIconBox,
+  // BackIcon,
 } from './styles'
 
 const SelectCategory = () => {
@@ -35,18 +35,18 @@ const SelectCategory = () => {
     dispatch(selectCategory(category))
     dispatch(getQuestions(category._id))
   }, [])
-  const goToHomeScreen = useCallback(() => {
-    navigation.navigate(SCREEN_NAMES.HOME)
-  }, [])
+  // const goToHomeScreen = useCallback(() => {
+  //   navigation.navigate(SCREEN_NAMES.HOME)
+  // }, [])
   return (
     <ScreenWithScrollWrapper>
       <SelectCategoryScreenWrapper>
-        <SelectCategoryScreenTitleBox>
+        {/* <SelectCategoryScreenTitleBox>
           <BackIconBox onPress={goToHomeScreen}>
             <BackIcon source={images.expandArrow} />
           </BackIconBox>
           <SelectCategoryScreenTitle>{t(fields.CATEGORIES)}</SelectCategoryScreenTitle>
-        </SelectCategoryScreenTitleBox>
+        </SelectCategoryScreenTitleBox> */}
         <AddNewCategoryBox onPress={goToAddNewCategoryScreen}>
           <AddNewCategoryBoxIcon>
             <AddNewCategoryBoxIconText>{'+'}</AddNewCategoryBoxIconText>

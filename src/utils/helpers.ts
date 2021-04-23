@@ -9,7 +9,7 @@ export const getNumberWithComas = (num: number = 0): string => {
   return strNum.replace(/(\d)(?=(?:\d{3})+(?:\.|$))|(\.\d\d?)\d*$/g, (m, s1, s2) => s2 || s1 + ',')
 }
 
-export const getAllLoadingFields = (state: RootState): boolean => {
+export const getIsLoading = (state: RootState): boolean => {
   const authLoading = state.auth.loading
   const appLoading = !state.app.ready
   const categoriesLoading = state.categories.loading

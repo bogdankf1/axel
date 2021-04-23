@@ -2,7 +2,7 @@ import {
   UserActionTypes,
   GetUserAction,
   GetUserSuccessAction,
-  GetUserFailAction
+  GetUserFailAction,
 } from './actionTypes'
 import { User } from '../../interfaces'
 import { LogoutSuccessAction, AuthActionTypes } from '../auth/actionTypes'
@@ -13,11 +13,7 @@ export interface RUser {
   userData: User
 }
 
-type UserActions =
-  GetUserAction |
-  GetUserSuccessAction |
-  GetUserFailAction |
-  LogoutSuccessAction
+type UserActions = GetUserAction | GetUserSuccessAction | GetUserFailAction | LogoutSuccessAction
 
 export const initialUser = (): RUser => ({
   loading: false,
@@ -26,11 +22,11 @@ export const initialUser = (): RUser => ({
     firstname: '',
     lastname: '',
     likedPostsIds: [],
-    username: ''
-  }
+    username: '',
+  },
 })
 
-const userReducer = (state =  initialUser(), action: UserActions): RUser => {
+const userReducer = (state = initialUser(), action: UserActions): RUser => {
   switch (action.type) {
     case UserActionTypes.GET_USER:
       return { ...state, loading: true }
@@ -39,7 +35,7 @@ const userReducer = (state =  initialUser(), action: UserActions): RUser => {
     case UserActionTypes.GET_USER_FAIL:
       return { ...state, loading: false, error: action.payload.message }
     case AuthActionTypes.LOGOUT_SUCCESS:
-    return initialUser()
+      return initialUser()
     default:
       return state
   }
