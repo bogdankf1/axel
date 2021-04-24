@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { FlatList } from 'react-native'
 import { QuestionItem } from '../../../interfaces'
 import { TopQuestionsListBox } from './styles'
 import TopQuestionsListItem from './TopQuestionsListItem'
@@ -11,14 +12,14 @@ interface TopQuestionsListProps {
 const TopQuestionsList = ({ questions, goToQuestion }: TopQuestionsListProps) => {
   return (
     <TopQuestionsListBox>
-      {questions.map((question, idx) => (
-        <TopQuestionsListItem
-          key={question._id}
-          index={idx + 1}
-          question={question}
-          goToQuestion={goToQuestion}
-        />
-      ))}
+      <FlatList
+        style={{ width: '100%' }}
+        data={questions}
+        renderItem={({ item, index }) => (
+          <TopQuestionsListItem index={index + 1} question={item} goToQuestion={goToQuestion} />
+        )}
+        keyExtractor={item => item._id}
+      />
     </TopQuestionsListBox>
   )
 }

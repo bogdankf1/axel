@@ -10,7 +10,7 @@ export const TopQuestionsListBox = styled.View`
   padding: 10px;
   width: 100%;
 `
-export const TopQuestionItem = styled.TouchableOpacity`
+export const TopQuestionItem = styled.Pressable`
   margin-top: 10px;
   flex-direction: row;
   align-items: center;

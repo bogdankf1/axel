@@ -33,12 +33,12 @@ export const LogoContainer = styled.View`
   height: 38px;
 `
 
-export const PrivateLeftSectionBoxWrapper = styled.TouchableOpacity`
+export const PrivateLeftSectionBoxWrapper = styled.Pressable`
   flex-direction: row;
   align-items: center;
 `
 
-export const PublicLeftSectionBoxWrapper = styled.TouchableOpacity`
+export const PublicLeftSectionBoxWrapper = styled.Pressable`
   flex-direction: row;
   align-items: center;
 `
@@ -49,4 +49,4 @@ export const HeaderTitle = styled.Text`
   font-family: ${fonts.main};
 `
 
-export const MenuContainer = styled.TouchableOpacity``
+export const MenuContainer = styled.Pressable``

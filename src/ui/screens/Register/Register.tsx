@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo, useCallback, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/core'
 import { translateFunctionSelector } from '../../../app/language/selectors'
@@ -18,6 +18,7 @@ import {
   LoginButtonWrapper,
   RegisterError,
 } from './styles'
+import { ScrollView } from 'react-native'
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -114,74 +115,85 @@ const Register = () => {
   const goToSignIn = useCallback(() => {
     navigation.navigate(SCREEN_NAMES.LOGIN)
   }, [])
+
+  const registerErrorMessage = useMemo(() => {
+    return (
+      firstNameError ||
+      lastNameError ||
+      usernameError ||
+      passwordError ||
+      confirmedPasswordError ||
+      error ||
+      registerError
+    )
+  }, [
+    firstNameError,
+    lastNameError,
+    usernameError,
+    passwordError,
+    confirmedPasswordError,
+    error,
+    registerError,
+  ])
+
+  const isSignUpButtonDisabled = useMemo(() => {
+    return (
+      !!error ||
+      !!firstNameError ||
+      !!lastNameError ||
+      !!usernameError ||
+      !!passwordError ||
+      !!confirmedPasswordError
+    )
+  }, [firstNameError, lastNameError, usernameError, passwordError, confirmedPasswordError, error])
+
   return (
     <ScreenWithScrollWrapper>
-      <RegisterScreenWrapper>
-        <RegisterScreenContent>
-          <RegisterScreenTitle>{t(fields.SIGN_UP)}</RegisterScreenTitle>
-          <RegisterInputField
-            value={firstName}
-            onChangeText={onChangeFirstname}
-            placeholder={t(fields.FIRSTNAME)}
-          />
-          <RegisterInputField
-            value={lastName}
-            onChangeText={onChangeLastname}
-            placeholder={t(fields.LASTNAME)}
-          />
-          <RegisterInputField
-            value={username}
-            onChangeText={onChangeUsername}
-            placeholder={t(fields.USERNAME)}
-          />
-          <RegisterInputField
-            value={password}
-            onChangeText={onChangePassword}
-            placeholder={t(fields.PASSWORD)}
-            secureTextEntry
-          />
-          <RegisterInputField
-            value={confirmedPassword}
-            onChangeText={onChangeConfirmPassword}
-            placeholder={t(fields.CONFIRM_PASSWORD)}
-            secureTextEntry
-          />
-          {firstNameError ||
-          lastNameError ||
-          usernameError ||
-          passwordError ||
-          confirmedPasswordError ||
-          error ||
-          registerError ? (
-            <RegisterError>
-              {firstNameError ||
-                lastNameError ||
-                usernameError ||
-                passwordError ||
-                confirmedPasswordError ||
-                error ||
-                registerError}
-            </RegisterError>
-          ) : null}
-          <RegisterButtonWrapper>
-            <AppButton
-              title={t(fields.SIGN_UP)}
-              onPress={handleSignUp}
-              disabled={
-                !!error ||
-                !!firstNameError ||
-                !!lastNameError ||
-                !!usernameError ||
-                !!passwordError ||
-                !!confirmedPasswordError
-              }
+      <ScrollView>
+        <RegisterScreenWrapper>
+          <RegisterScreenContent>
+            <RegisterScreenTitle>{t(fields.SIGN_UP)}</RegisterScreenTitle>
+            <RegisterInputField
+              value={firstName}
+              onChangeText={onChangeFirstname}
+              placeholder={t(fields.FIRSTNAME)}
             />
-          </RegisterButtonWrapper>
-          <LoginButtonWrapper>
-            <AppButton title={t(fields.SIGN_IN)} onPress={goToSignIn} color={colors.blue} />
-          </LoginButtonWrapper>
-        </RegisterScreenContent>
-      </RegisterScreenWrapper>
+            <RegisterInputField
+              value={lastName}
+              onChangeText={onChangeLastname}
+              placeholder={t(fields.LASTNAME)}
+            />
+            <RegisterInputField
+              value={username}
+              onChangeText={onChangeUsername}
+              placeholder={t(fields.USERNAME)}
+            />
+            <RegisterInputField
+              value={password}
+              onChangeText={onChangePassword}
+              placeholder={t(fields.PASSWORD)}
+              secureTextEntry
+            />
+            <RegisterInputField
+              value={confirmedPassword}
+              onChangeText={onChangeConfirmPassword}
+              placeholder={t(fields.CONFIRM_PASSWORD)}
+              secureTextEntry
+            />
+            {!!registerErrorMessage ? <RegisterError>{registerErrorMessage}</RegisterError> : null}
+            <RegisterButtonWrapper>
+              <AppButton
+                title={t(fields.SIGN_UP)}
+                onPress={handleSignUp}
+                disabled={isSignUpButtonDisabled}
+              />
+            </RegisterButtonWrapper>
+            <LoginButtonWrapper>
+              <AppButton title={t(fields.SIGN_IN)} onPress={goToSignIn} color={colors.blue} />
+            </LoginButtonWrapper>
+          </RegisterScreenContent>
+        </RegisterScreenWrapper>
+      </ScrollView>
     </ScreenWithScrollWrapper>
   )
 }

@@ -17,7 +17,7 @@ export const HomeScreenButtonsBox = styled.View`
 interface HomeScreenButtonProps {
   color: string
 }
-export const HomeScreenButton = styled.TouchableOpacity<HomeScreenButtonProps>`
+export const HomeScreenButton = styled.Pressable<HomeScreenButtonProps>`
   width: 100%;
   height: 50px;
   border-radius: 10px;

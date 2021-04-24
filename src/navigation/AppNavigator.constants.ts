@@ -3,9 +3,9 @@ export const SCREEN_NAMES = {
   REGISTER: 'Sign Up',
   HOME: 'Home',
   SELECT_CATEGORY: 'Categories',
-  ADD_NEW_CATEGORY: 'Add New Categoryy',
+  ADD_NEW_CATEGORY: 'Add New Category',
   CATEGORY_QUESTIONS: 'Questions',
-  ADD_NEW_QUESTION: 'Add New Questions',
+  ADD_NEW_QUESTION: 'Add New Question',
   QUESTION: 'Question',
-  TOP_QUESTIONS: 'Top 10',
+  TOP_QUESTIONS: 'Top 10 Questions',
 }

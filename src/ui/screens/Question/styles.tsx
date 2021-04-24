@@ -14,7 +14,7 @@ export const QuestionTextBox = styled.View`
 export const QuestionText = styled.Text`
   font-size: 24px;
 `
-export const QuestionLikesContainer = styled.TouchableOpacity`
+export const QuestionLikesContainer = styled.Pressable`
   flex-direction: row;
   align-items: center;
 `

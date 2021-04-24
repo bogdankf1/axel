@@ -1,7 +1,8 @@
 import React, { memo } from 'react'
+import { FlatList } from 'react-native'
 import { CategoryItem } from '../../../interfaces'
 import { SelectCategoryListWrapper } from './styles'
-import SelectCategoryListItem from './SelectCategoryListItem'
+import SelectCategoryListItem from './CategoriesListItem'
 
 interface SelectCategoryListProps {
   categories: CategoryItem[]
@@ -11,13 +12,14 @@ interface SelectCategoryListProps {
 const SelectCategoryList = ({ categories, onCategoryPress }: SelectCategoryListProps) => {
   return (
     <SelectCategoryListWrapper>
-      {categories.map(category => (
-        <SelectCategoryListItem
-          key={category._id}
-          category={category}
-          onCategoryPress={onCategoryPress}
-        />
-      ))}
+      <FlatList
+        style={{ width: '100%' }}
+        data={categories}
+        renderItem={({ item }) => (
+          <SelectCategoryListItem category={item} onCategoryPress={onCategoryPress} />
+        )}
+        keyExtractor={item => item._id}
+      />
     </SelectCategoryListWrapper>
   )
 }

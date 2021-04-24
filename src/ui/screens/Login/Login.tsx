@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo, useCallback, useMemo, useState } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
@@ -18,6 +18,7 @@ import {
   RegisterButtonWrapper,
   LoginError,
 } from './styles'
+import { ScrollView } from 'react-native'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -78,37 +79,46 @@ const Login = () => {
   const goToSignUp = useCallback(() => {
     navigation.navigate(SCREEN_NAMES.REGISTER)
   }, [])
+
+  const loginErrorMessage = useMemo(() => {
+    return error || usernameError || passwordError || loginError
+  }, [error, usernameError, passwordError, loginError])
+
+  const isSignInButtonDisabled = useMemo(() => {
+    return !!error || !!usernameError || !!passwordError
+  }, [error, usernameError, passwordError])
+
   return (
     <ScreenWithScrollWrapper>
-      <LoginScreenWrapper>
-        <LoginScreenContent>
-          <LoginScreenTitle>{t(fields.SIGN_IN)}</LoginScreenTitle>
-          <LoginInputField
-            value={username}
-            onChangeText={onChangeUsername}
-            placeholder={t(fields.USERNAME)}
-          />
-          <LoginInputField
-            value={password}
-            onChangeText={onChangePassword}
-            placeholder={t(fields.PASSWORD)}
-            secureTextEntry
-          />
-          {error || usernameError || passwordError || loginError ? (
-            <LoginError>{error || usernameError || passwordError || loginError}</LoginError>
-          ) : null}
-          <LoginButtonWrapper>
-            <AppButton
-              title={t(fields.SIGN_IN)}
-              onPress={signIn}
-              disabled={!!error || !!usernameError || !!passwordError}
+      <ScrollView>
+        <LoginScreenWrapper>
+          <LoginScreenContent>
+            <LoginScreenTitle>{t(fields.SIGN_IN)}</LoginScreenTitle>
+            <LoginInputField
+              value={username}
+              onChangeText={onChangeUsername}
+              placeholder={t(fields.USERNAME)}
             />
-          </LoginButtonWrapper>
-          <RegisterButtonWrapper>
-            <AppButton title={t(fields.SIGN_UP)} onPress={goToSignUp} color={colors.blue} />
-          </RegisterButtonWrapper>
-        </LoginScreenContent>
-      </LoginScreenWrapper>
+            <LoginInputField
+              value={password}
+              onChangeText={onChangePassword}
+              placeholder={t(fields.PASSWORD)}
+              secureTextEntry
+            />
+            {!!loginErrorMessage ? <LoginError>{loginErrorMessage}</LoginError> : null}
+            <LoginButtonWrapper>
+              <AppButton
+                title={t(fields.SIGN_IN)}
+                onPress={signIn}
+                disabled={isSignInButtonDisabled}
+              />
+            </LoginButtonWrapper>
+            <RegisterButtonWrapper>
+              <AppButton title={t(fields.SIGN_UP)} onPress={goToSignUp} color={colors.blue} />
+            </RegisterButtonWrapper>
+          </LoginScreenContent>
+        </LoginScreenWrapper>
+      </ScrollView>
     </ScreenWithScrollWrapper>
   )
 }
