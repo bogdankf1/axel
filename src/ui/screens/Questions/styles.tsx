@@ -7,6 +7,7 @@ export const CategoryQuestionsScreenWrapper = styled.View`
   height: 100%;
   align-items: center;
   position: relative;
+  padding: 5px 0;
 `
 export const CategoryQuestionsScreenTitleBox = styled.View`
   width: 100%;

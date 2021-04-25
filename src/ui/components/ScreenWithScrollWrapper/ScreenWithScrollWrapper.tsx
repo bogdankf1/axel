@@ -5,7 +5,7 @@ interface ScreenWithScrollWrapperProps {}
 
 const ScreenWithScrollWrapper: FC<ScreenWithScrollWrapperProps> = ({ children }) => (
   <>
-    <Header />
+    {/* <Header /> */}
     {children}
   </>
 )

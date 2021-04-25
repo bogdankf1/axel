@@ -13,6 +13,7 @@ import Question from '../ui/screens/Question/Question'
 import TopQuestions from '../ui/screens/TopQuestions/TopQuestions'
 import { SCREEN_NAMES } from './AppNavigator.constants'
 import { navigationRef } from './NavigationService'
+import colors from '../ui/theme/colors'
 
 const Stack = createStackNavigator()
 
@@ -20,7 +21,14 @@ export const AppNavigator = () => {
   return (
     // @ts-ignore
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator initialRouteName="App">
+      <Stack.Navigator
+        initialRouteName="App"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: colors.blue,
+          },
+          headerTintColor: colors.white,
+        }}>
         <Stack.Screen name={SCREEN_NAMES.LOGIN} component={Login} />
         <Stack.Screen name={SCREEN_NAMES.REGISTER} component={Register} />
         <Stack.Screen name={SCREEN_NAMES.SELECT_CATEGORY} component={Categories} />

@@ -30,8 +30,10 @@ const App = () => {
 const AppWrapper = styled.View`
   flex: 1;
   position: relative;
-  background-color: ${colors.white};
+  background-color: ${colors.blue};
   padding-top: ${Platform.OS === 'ios' ? '24px' : '0px'};
+  height: 100%;
+  min-height: 100%;
 `
 
 export const store = configureStore()

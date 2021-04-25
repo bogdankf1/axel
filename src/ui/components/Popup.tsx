@@ -3,9 +3,9 @@ import styled from 'styled-components/native'
 
 const PopupWrapper = styled.View`
   width: 100%;
-  height: 100%;
+  height: 110%;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   display: flex;
   justify-content: center;
