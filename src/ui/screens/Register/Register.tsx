@@ -1,8 +1,9 @@
 import React, { memo, useCallback, useMemo, useState } from 'react'
+import { ScrollView } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/core'
 import { translateFunctionSelector } from '../../../app/language/selectors'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
 import { signUp } from '../../../app/auth/actions'
@@ -18,7 +19,6 @@ import {
   LoginButtonWrapper,
   RegisterError,
 } from './styles'
-import { ScrollView } from 'react-native'
 
 const Register = () => {
   const dispatch = useDispatch()
@@ -148,7 +148,7 @@ const Register = () => {
   }, [firstNameError, lastNameError, usernameError, passwordError, confirmedPasswordError, error])
 
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <ScrollView>
         <RegisterScreenWrapper>
           <RegisterScreenContent>
@@ -194,7 +194,7 @@ const Register = () => {
           </RegisterScreenContent>
         </RegisterScreenWrapper>
       </ScrollView>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

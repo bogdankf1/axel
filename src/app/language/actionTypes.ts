@@ -6,10 +6,16 @@ export enum LanguageActionTypes {
 
 export interface ChangeLanguageAction {
   type: LanguageActionTypes.CHANGE_LANGUAGE
+  payload: {
+    language: string
+  }
 }
 
 export interface ChangeLanguageSuccessAction {
   type: LanguageActionTypes.CHANGE_LANGUAGE_SUCCESS
+  payload: {
+    language: string
+  }
 }
 
 export interface ChangeLanguageFailAction {

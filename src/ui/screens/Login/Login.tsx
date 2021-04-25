@@ -2,7 +2,7 @@ import React, { memo, useCallback, useMemo, useState } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
 import { login } from '../../../app/auth/actions'
@@ -89,7 +89,7 @@ const Login = () => {
   }, [error, usernameError, passwordError])
 
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <ScrollView>
         <LoginScreenWrapper>
           <LoginScreenContent>
@@ -119,7 +119,7 @@ const Login = () => {
           </LoginScreenContent>
         </LoginScreenWrapper>
       </ScrollView>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

@@ -2,7 +2,7 @@ import React, { useCallback, memo, useState, useMemo } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { CategoryItem } from '../../../interfaces'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import { categoriesListSelector } from '../../../app/categories/selectors'
 import { selectCategory } from '../../../app/categories/actions'
 import { getQuestions } from '../../../app/questions/actions'
@@ -37,7 +37,7 @@ const Categories = () => {
   }, [categories, searchValue])
 
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <SelectCategoryScreenWrapper>
         <SearchInput
           value={searchValue}
@@ -54,7 +54,7 @@ const Categories = () => {
         )}
         <FloatButton onPress={goToAddNewCategoryScreen} />
       </SelectCategoryScreenWrapper>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

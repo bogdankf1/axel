@@ -1,46 +1,32 @@
 import styled from 'styled-components/native'
 import colors from '../../theme/colors'
 import fonts from '../../theme/fonts'
-import { relativeSizeToHeight, relativeSizeToWidth } from '../../../utils/helpers'
 
 export const HeaderContainer = styled.View`
   width: 100%;
-  height: ${relativeSizeToWidth(65)}px;
+  height: 100px;
   background-color: ${colors.blue};
-  padding: ${relativeSizeToHeight(10)}px;
+  padding: 0 20px 10px;
+  flex-direction: row;
+  align-items: flex-end;
+`
+
+export const HeaderInner = styled.View`
+  width: 100%;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `
 
-export const LeftSection = styled.View`
-  width: ${relativeSizeToWidth(200)}px;
-  height: 100%;
+export const HeaderTitleWrapper = styled.Pressable`
   align-items: center;
-  justify-content: flex-start;
   flex-direction: row;
 `
-
-export const RightSection = styled.View`
-  height: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`
-
-export const LogoContainer = styled.View`
-  width: 38px;
-  height: 38px;
-`
-
-export const PrivateLeftSectionBoxWrapper = styled.Pressable`
-  flex-direction: row;
-  align-items: center;
-`
-
-export const PublicLeftSectionBoxWrapper = styled.Pressable`
-  flex-direction: row;
-  align-items: center;
+export const MenuIconWrapper = styled.Pressable``
+export const MenuIcon = styled.Text`
+  font-size: 24px;
+  margin-right: 8px;
+  color: ${colors.white};
 `
 
 export const HeaderTitle = styled.Text`
@@ -48,5 +34,3 @@ export const HeaderTitle = styled.Text`
   font-size: 18px;
   font-family: ${fonts.main};
 `
-
-export const MenuContainer = styled.Pressable``

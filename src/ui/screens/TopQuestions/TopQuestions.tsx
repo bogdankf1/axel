@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { QuestionItem } from '../../../interfaces'
 import { translateFunctionSelector } from '../../../app/language/selectors'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import TopQuestionsList from './TopQuestionsList'
 import { topQuestionsListSelector } from '../../../app/questions/selectors'
 import { getTopQuestions, selectQuestion, getComments } from '../../../app/questions/actions'
@@ -26,11 +26,11 @@ const TopQuestionsScreen = () => {
     navigation.navigate(SCREEN_NAMES.QUESTION, { goBackRoute: SCREEN_NAMES.TOP_QUESTIONS })
   }, [])
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <TopQuestionsScreenWrapper>
         <TopQuestionsList questions={questions} goToQuestion={goToQuestion} />
       </TopQuestionsScreenWrapper>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

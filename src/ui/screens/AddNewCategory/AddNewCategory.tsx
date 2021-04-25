@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import { addCategory } from '../../../app/categories/actions'
 import {
   AddNewCategoryScreenWrapper,
@@ -24,7 +24,7 @@ const AddNewCategory = () => {
     dispatch(addCategory(categoryTitle))
   }, [])
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <AddNewCategoryScreenWrapper>
         <AddNewCategoryInputFieldBox>
           <AddNewCategoryInputField
@@ -37,7 +37,7 @@ const AddNewCategory = () => {
           <AppButton title={t(fields.SUBMIT)} onPress={handleSubmitButtonPress} />
         </AddNewCategoryButtonBox>
       </AddNewCategoryScreenWrapper>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

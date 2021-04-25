@@ -5,12 +5,18 @@ import {
   ChangeLanguageFailAction,
 } from './actionTypes'
 
-export const changeLanguage = (): ChangeLanguageAction => ({
+export const changeLanguage = (language: string): ChangeLanguageAction => ({
   type: LanguageActionTypes.CHANGE_LANGUAGE,
+  payload: {
+    language,
+  },
 })
 
-export const changeLanguageSuccess = (): ChangeLanguageSuccessAction => ({
+export const changeLanguageSuccess = (language: string): ChangeLanguageSuccessAction => ({
   type: LanguageActionTypes.CHANGE_LANGUAGE_SUCCESS,
+  payload: {
+    language,
+  },
 })
 
 export const changeLanguageFail = (): ChangeLanguageFailAction => ({

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import { addQuestion } from '../../../app/questions/actions'
 import { selectedCategorySelector } from '../../../app/categories/selectors'
 import {
@@ -27,7 +27,7 @@ const AddNewQuestion = () => {
   }, [selectedCategory, questionTitle])
 
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <AddNewQuestionScreenWrapper>
         <AddNewQuestionInputFieldBox>
           <AddNewQuestionInputField
@@ -40,7 +40,7 @@ const AddNewQuestion = () => {
           <AppButton title={t(fields.SUBMIT)} onPress={handleSubmitButtonPress} />
         </AddNewQuestionButtonBox>
       </AddNewQuestionScreenWrapper>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

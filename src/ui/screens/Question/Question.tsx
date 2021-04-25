@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import QuestionCommentsList from './QuestionCommentsList'
 import images from '../../theme/images'
 import {
@@ -57,7 +57,7 @@ const QuestionScreen = () => {
     return !!user.likedPostsIds.includes(selectedQuestion._id)
   }, [user])
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <QuestionScreenWrapper>
         <QuestionTextBox>
           <QuestionText>{selectedQuestion.title}</QuestionText>
@@ -82,7 +82,7 @@ const QuestionScreen = () => {
           <QuestionCommentsList comments={currentQuestionComments} />
         </QuestionCommentsBox>
       </QuestionScreenWrapper>
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

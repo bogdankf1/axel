@@ -9,7 +9,7 @@ interface ScreenWrapperProps {
 
 const ScreenWrapper: FC<ScreenWrapperProps> = ({ children, styles }) => (
   <View style={{ flex: 1, ...styles }}>
-    {/* <Header /> */}
+    <Header />
     {children}
   </View>
 )

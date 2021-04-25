@@ -2,7 +2,7 @@ import React, { useCallback, memo, useState, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/core'
 import { QuestionItem } from '../../../interfaces'
-import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
+import ScreenWrapper from '../../components/ScreenWrapper/ScreenWrapper'
 import { questionsListSelector } from '../../../app/questions/selectors'
 import { selectQuestion, getComments } from '../../../app/questions/actions'
 import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
@@ -37,7 +37,7 @@ const Questions = () => {
   }, [questions, searchValue])
 
   return (
-    <ScreenWithScrollWrapper>
+    <ScreenWrapper>
       <CategoryQuestionsScreenWrapper>
         <SearchInput
           value={searchValue}
@@ -51,7 +51,7 @@ const Questions = () => {
         )}
       </CategoryQuestionsScreenWrapper>
       <FloatButton onPress={goToAddNewQuestionsScreen} />
-    </ScreenWithScrollWrapper>
+    </ScreenWrapper>
   )
 }
 

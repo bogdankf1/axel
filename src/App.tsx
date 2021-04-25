@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import { Platform } from 'react-native'
 import SplashScreen from 'react-native-splash-screen'
 import { Provider, useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components/native'
@@ -31,7 +30,6 @@ const AppWrapper = styled.View`
   flex: 1;
   position: relative;
   background-color: ${colors.blue};
-  padding-top: ${Platform.OS === 'ios' ? '24px' : '0px'};
   height: 100%;
   min-height: 100%;
 `

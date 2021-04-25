@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import Login from '../ui/screens/Login/Login'
 import Register from '../ui/screens/Register/Register'
@@ -13,32 +13,27 @@ import Question from '../ui/screens/Question/Question'
 import TopQuestions from '../ui/screens/TopQuestions/TopQuestions'
 import { SCREEN_NAMES } from './AppNavigator.constants'
 import { navigationRef } from './NavigationService'
-import colors from '../ui/theme/colors'
+import DrawerContent from './DrawerContent/DrawerContent'
 
-const Stack = createStackNavigator()
+const Drawer = createDrawerNavigator()
 
 export const AppNavigator = () => {
   return (
     // @ts-ignore
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator
+      <Drawer.Navigator
         initialRouteName="App"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: colors.blue,
-          },
-          headerTintColor: colors.white,
-        }}>
-        <Stack.Screen name={SCREEN_NAMES.LOGIN} component={Login} />
-        <Stack.Screen name={SCREEN_NAMES.REGISTER} component={Register} />
-        <Stack.Screen name={SCREEN_NAMES.SELECT_CATEGORY} component={Categories} />
-        <Stack.Screen name={SCREEN_NAMES.ADD_NEW_CATEGORY} component={AddNewCategory} />
-        <Stack.Screen name={SCREEN_NAMES.CATEGORY_QUESTIONS} component={Questions} />
-        <Stack.Screen name={SCREEN_NAMES.ADD_NEW_QUESTION} component={AddNewQuestion} />
-        <Stack.Screen name={SCREEN_NAMES.QUESTION} component={Question} />
-        <Stack.Screen name={SCREEN_NAMES.TOP_QUESTIONS} component={TopQuestions} />
-        <Stack.Screen name={SCREEN_NAMES.HOME} component={Home} />
-      </Stack.Navigator>
+        drawerContent={props => <DrawerContent {...props} />}>
+        <Drawer.Screen name={SCREEN_NAMES.LOGIN} component={Login} />
+        <Drawer.Screen name={SCREEN_NAMES.REGISTER} component={Register} />
+        <Drawer.Screen name={SCREEN_NAMES.SELECT_CATEGORY} component={Categories} />
+        <Drawer.Screen name={SCREEN_NAMES.ADD_NEW_CATEGORY} component={AddNewCategory} />
+        <Drawer.Screen name={SCREEN_NAMES.CATEGORY_QUESTIONS} component={Questions} />
+        <Drawer.Screen name={SCREEN_NAMES.ADD_NEW_QUESTION} component={AddNewQuestion} />
+        <Drawer.Screen name={SCREEN_NAMES.QUESTION} component={Question} />
+        <Drawer.Screen name={SCREEN_NAMES.TOP_QUESTIONS} component={TopQuestions} />
+        <Drawer.Screen name={SCREEN_NAMES.HOME} component={Home} />
+      </Drawer.Navigator>
     </NavigationContainer>
   )
 }
