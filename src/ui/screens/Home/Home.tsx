@@ -39,10 +39,7 @@ const Home = () => {
           <HomeScreenButton color={colors.lightBlue} onPress={goToSelectCategoryScreen}>
             <HomeScreenButtonText>{t(fields.SEE_ALL_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
-          <HomeScreenButton color={colors.green} onPress={goToAddQuestionScreen}>
-            <HomeScreenButtonText>{t(fields.ADD_NEW_QUESTION)}</HomeScreenButtonText>
-          </HomeScreenButton>
-          <HomeScreenButton color={colors.yellow} onPress={goToTopQuestionsScreen}>
+          <HomeScreenButton color={colors.green} onPress={goToTopQuestionsScreen}>
             <HomeScreenButtonText>{t(fields.TOP_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
         </HomeScreenButtonsBox>

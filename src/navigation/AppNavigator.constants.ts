@@ -8,4 +8,6 @@ export const SCREEN_NAMES = {
   ADD_NEW_QUESTION: 'Add New Question',
   QUESTION: 'Question',
   TOP_QUESTIONS: 'Top 10 Questions',
+  PROFILE: 'My Profile',
+  CHARTS: 'Charts',
 }

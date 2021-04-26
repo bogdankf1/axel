@@ -14,6 +14,8 @@ import TopQuestions from '../ui/screens/TopQuestions/TopQuestions'
 import { SCREEN_NAMES } from './AppNavigator.constants'
 import { navigationRef } from './NavigationService'
 import DrawerContent from './DrawerContent/DrawerContent'
+import Charts from '../ui/screens/Charts/Charts'
+import Profile from '../ui/screens/Profile/Profile'
 
 const Drawer = createDrawerNavigator()
 
@@ -32,6 +34,8 @@ export const AppNavigator = () => {
         <Drawer.Screen name={SCREEN_NAMES.ADD_NEW_QUESTION} component={AddNewQuestion} />
         <Drawer.Screen name={SCREEN_NAMES.QUESTION} component={Question} />
         <Drawer.Screen name={SCREEN_NAMES.TOP_QUESTIONS} component={TopQuestions} />
+        <Drawer.Screen name={SCREEN_NAMES.CHARTS} component={Charts} />
+        <Drawer.Screen name={SCREEN_NAMES.PROFILE} component={Profile} />
         <Drawer.Screen name={SCREEN_NAMES.HOME} component={Home} />
       </Drawer.Navigator>
     </NavigationContainer>
