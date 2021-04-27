@@ -7,13 +7,13 @@ export const ConfirmModalBox = styled.View`
   padding: 10px;
   align-items: center;
   justify-content: space-between;
-  background: ${colors.white};
+  background: ${colors.secondary.bg};
   border-radius: 10px;
 `
 export const ConfirmModalText = styled.Text`
   text-align: center;
   font-size: 14px;
-  color: ${colors.blue};
+  color: ${colors.secondary.text};
 `
 export const ConfirmModalButtons = styled.View`
   width: 100%;

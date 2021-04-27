@@ -18,7 +18,7 @@ export const startup: Epic = action$ => {
       const authData = await StorageService.read<AuthTokenParams>('token')
 
       if (Platform.OS === 'android') {
-        StatusBar.setBackgroundColor(colors.blue)
+        StatusBar.setBackgroundColor(colors.primary.bg)
       }
 
       // // make splash screen to not blink fast

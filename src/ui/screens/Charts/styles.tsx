@@ -19,5 +19,5 @@ export const ChartsSectionTitleBox = styled.View`
 `
 export const ChartsSectionTitle = styled.Text`
   font-size: 24px;
-  color: ${colors.blue};
+  color: ${colors.secondary.text};
 `

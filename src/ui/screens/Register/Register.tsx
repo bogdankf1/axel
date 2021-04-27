@@ -189,7 +189,11 @@ const Register = () => {
               />
             </RegisterButtonWrapper>
             <LoginButtonWrapper>
-              <AppButton title={t(fields.SIGN_IN)} onPress={goToSignIn} color={colors.blue} />
+              <AppButton
+                title={t(fields.SIGN_IN)}
+                onPress={goToSignIn}
+                color={colors.secondary.text}
+              />
             </LoginButtonWrapper>
           </RegisterScreenContent>
         </RegisterScreenWrapper>

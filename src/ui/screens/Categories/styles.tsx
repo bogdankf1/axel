@@ -16,12 +16,12 @@ export const SelectCategoryListWrapper = styled.View`
 export const SelectCategoryListItemBox = styled.Pressable`
   width: 100%;
   height: 60px;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
   border-bottom-width: 1px;
   justify-content: center;
   padding-left: 10px;
 `
 export const SelectCategoryListItemTitle = styled.Text`
-  color: ${colors.black};
+  color: ${colors.primary.lightText};
   font-size: 20px;
 `

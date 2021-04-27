@@ -49,7 +49,7 @@ export const QuestionCommentsListWrapper = styled.View`
 `
 export const QuestionCommentsItem = styled.View`
   margin-top: 10px;
-  border: 1px solid ${colors.black};
+  border: 1px solid ${colors.primary.lightText};
   border-radius: 8px;
   padding: 5px;
 `
@@ -81,5 +81,5 @@ export const QuestionAddCommentInput = styled.TextInput`
   flex: 1;
   margin-right: 8px;
   border-bottom-width: 1px;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
 `

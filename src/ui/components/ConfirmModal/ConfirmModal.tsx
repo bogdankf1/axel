@@ -17,7 +17,7 @@ const ConfirmModal = ({ isOpen, onCancel, onConfirm, text }: Props) => {
       <ConfirmModalBox>
         <ConfirmModalText>{text}</ConfirmModalText>
         <ConfirmModalButtons>
-          <AppButton title={'Cancel'} onPress={onCancel} color={colors.red} />
+          <AppButton title={'Cancel'} onPress={onCancel} color={colors.error} />
           <AppButton title={'Confirm'} onPress={onConfirm} />
         </ConfirmModalButtons>
       </ConfirmModalBox>

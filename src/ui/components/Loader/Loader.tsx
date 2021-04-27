@@ -6,7 +6,7 @@ import Popup from '../Popup'
 const LoaderModal: FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return isVisible ? (
     <Popup>
-      <ActivityIndicator size={'large'} color={colors.white} />
+      <ActivityIndicator size={'large'} color={colors.primary.text} />
     </Popup>
   ) : null
 }

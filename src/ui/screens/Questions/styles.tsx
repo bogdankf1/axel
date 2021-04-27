@@ -14,12 +14,12 @@ export const CategoryQuestionsScreenTitleBox = styled.View`
   height: 60px;
   align-items: center;
   justify-content: center;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
   border-bottom-width: 1px;
   position: relative;
 `
 export const CategoryQuestionsScreenTitle = styled.Text`
-  color: ${colors.black};
+  color: ${colors.primary.lightText};
   font-size: 24px;
   text-align: center;
 `
@@ -31,12 +31,12 @@ export const CategoryQuestionsListWrapper = styled.View`
 export const CategoryQuestionsListItemBox = styled.Pressable`
   width: 100%;
   height: 60px;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
   border-bottom-width: 1px;
   justify-content: center;
   padding-left: 10px;
 `
 export const CategoryQuestionsListItemTitle = styled.Text`
-  color: ${colors.black};
+  color: ${colors.primary.lightText};
   font-size: 20px;
 `

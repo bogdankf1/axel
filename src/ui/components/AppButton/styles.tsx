@@ -13,7 +13,7 @@ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  background-color: ${colors.lightBlue};
+  background-color: ${colors.secondary.lightText};
 
   ${({ disabled }: AppButtonWrapperProps) =>
     disabled &&
@@ -28,7 +28,7 @@ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
 `
 export const AppButtonText = styled.Text`
   text-align: center;
-  color: ${colors.white};
+  color: ${colors.primary.text};
   font-family: ${fonts.main};
   font-size: 16px;
 `

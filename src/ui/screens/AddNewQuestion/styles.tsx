@@ -15,7 +15,7 @@ export const AddNewQuestionInputFieldBox = styled.View`
 export const AddNewQuestionInputField = styled.TextInput`
   width: 100%;
   border-bottom-width: 1px;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
 `
 export const AddNewQuestionButtonBox = styled.View`
   width: 100%;

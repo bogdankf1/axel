@@ -29,7 +29,7 @@ const App = () => {
 const AppWrapper = styled.View`
   flex: 1;
   position: relative;
-  background-color: ${colors.blue};
+  background-color: ${colors.primary.bg};
   height: 100%;
   min-height: 100%;
 `

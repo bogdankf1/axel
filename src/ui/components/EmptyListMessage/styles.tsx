@@ -10,7 +10,7 @@ export const EmptyListMessageBox = styled.View`
 `
 
 export const EmptyListMessageText = styled.Text`
-  color: ${colors.lightBlue};
+  color: ${colors.secondary.lightText};
   font-size: 18px;
   text-align: center;
 `

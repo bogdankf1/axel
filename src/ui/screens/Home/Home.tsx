@@ -36,10 +36,10 @@ const Home = () => {
     <ScreenWrapper>
       <HomeScreenWrapper>
         <HomeScreenButtonsBox>
-          <HomeScreenButton color={colors.lightBlue} onPress={goToSelectCategoryScreen}>
+          <HomeScreenButton color={colors.secondary.lightText} onPress={goToSelectCategoryScreen}>
             <HomeScreenButtonText>{t(fields.SEE_ALL_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
-          <HomeScreenButton color={colors.green} onPress={goToTopQuestionsScreen}>
+          <HomeScreenButton color={colors.success} onPress={goToTopQuestionsScreen}>
             <HomeScreenButtonText>{t(fields.TOP_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
         </HomeScreenButtonsBox>

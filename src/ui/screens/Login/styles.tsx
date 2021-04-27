@@ -28,7 +28,7 @@ export const LoginInputField = styled.TextInput`
   margin-top: 8px;
   width: 100%;
   border-bottom-width: 1px;
-  border-bottom-color: ${colors.black};
+  border-bottom-color: ${colors.primary.lightText};
 `
 export const LoginButtonWrapper = styled.View`
   align-items: center;
@@ -40,7 +40,7 @@ export const RegisterButtonWrapper = styled.View`
 `
 export const LoginError = styled.Text`
   margin: 5px auto;
-  color: ${colors.red};
+  color: ${colors.error};
   align-self: center;
   text-align: center;
   font-size: 16px;

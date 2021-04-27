@@ -9,12 +9,12 @@ export const FloatButtonBox = styled.Pressable`
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  background-color: ${colors.green};
+  background-color: ${colors.success};
   align-items: center;
   justify-content: center;
 `
 export const FloatButtonText = styled.Text`
-  color: ${colors.white};
+  color: ${colors.primary.text};
   font-size: 28px;
   text-align: center;
   height: 100%;

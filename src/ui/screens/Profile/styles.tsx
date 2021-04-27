@@ -19,12 +19,12 @@ export const ProfileSectionTitleBox = styled.View`
 `
 export const ProfileSectionTitle = styled.Text`
   font-size: 24px;
-  color: ${colors.blue};
+  color: ${colors.secondary.text};
 `
 export const ProfileSectionValueBox = styled.View`
   padding-left: 8px;
 `
 export const ProfileSectionValue = styled.Text`
   font-size: 16px;
-  color: ${colors.lightBlue};
+  color: ${colors.secondary.lightText};
 `

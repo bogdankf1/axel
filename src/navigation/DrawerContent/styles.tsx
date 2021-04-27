@@ -10,11 +10,11 @@ export const DrawerInner = styled.View`
 `
 export const DrawerTitleBox = styled.Pressable`
   padding: 40px 20px 10px;
-  background: ${colors.blue};
+  background: ${colors.primary.bg};
 `
 export const Title = styled.Text`
   font-size: 24px;
-  color: ${colors.white};
+  color: ${colors.primary.text};
 `
 export const DrawerItemsBox = styled.View`
   padding: 40px 20px 10px;
@@ -28,7 +28,7 @@ export const DrawerItemIcon = styled.View`
   margin-right: 8px;
 `
 export const DrawerItemText = styled.Text`
-  color: ${colors.blue};
+  color: ${colors.secondary.text};
   font-size: 16px;
   flex-direction: row;
 `
@@ -42,11 +42,11 @@ interface DrawerLanguageItemTextProps {
   isActive: boolean
 }
 export const DrawerLanguageItemText = styled.Text<DrawerLanguageItemTextProps>`
-  color: ${colors.black};
+  color: ${colors.primary.lightText};
 
   ${({ isActive }: DrawerLanguageItemTextProps) =>
     isActive &&
     css`
-      color: ${colors.blue};
+      color: ${colors.secondary.text};
     `}
 `

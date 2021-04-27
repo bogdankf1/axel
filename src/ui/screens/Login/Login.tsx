@@ -114,7 +114,11 @@ const Login = () => {
               />
             </LoginButtonWrapper>
             <RegisterButtonWrapper>
-              <AppButton title={t(fields.SIGN_UP)} onPress={goToSignUp} color={colors.blue} />
+              <AppButton
+                title={t(fields.SIGN_UP)}
+                onPress={goToSignUp}
+                color={colors.secondary.text}
+              />
             </RegisterButtonWrapper>
           </LoginScreenContent>
         </LoginScreenWrapper>

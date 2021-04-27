@@ -6,6 +6,6 @@ export const SearchInputWrapper = styled.TextInput`
   height: 60px;
   border-radius: 20px;
   font-size: 24px;
-  border: 1px solid ${colors.blue};
+  border: 1px solid ${colors.primary.bg};
   padding: 10px;
 `
