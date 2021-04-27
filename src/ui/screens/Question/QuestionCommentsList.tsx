@@ -15,7 +15,7 @@ const QuestionCommentsList = ({ comments }: QuestionCommentsListProps) => {
         style={{ width: '100%' }}
         data={comments}
         renderItem={({ item }) => <QuestionCommentsListItem comment={item} />}
-        keyExtractor={item => item._id}
+        // keyExtractor={item => item._id}
       />
     </QuestionCommentsListWrapper>
   )

@@ -26,9 +26,18 @@ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
       background-color: ${color};
     `}
 `
-export const AppButtonText = styled.Text`
+interface AppButtonTextProps {
+  textColor?: string
+}
+export const AppButtonText = styled.Text<AppButtonTextProps>`
   text-align: center;
-  color: ${colors.primary.text};
+  color: ${colors.secondary.text};
   font-family: ${fonts.main};
   font-size: 16px;
+
+  ${({ textColor }: AppButtonTextProps) =>
+    textColor &&
+    css`
+      color: ${textColor};
+    `}
 `

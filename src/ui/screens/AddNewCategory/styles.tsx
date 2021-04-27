@@ -16,6 +16,7 @@ export const AddNewCategoryInputField = styled.TextInput`
   width: 100%;
   border-bottom-width: 1px;
   border-bottom-color: ${colors.primary.lightText};
+  height: 40px;
 `
 export const AddNewCategoryButtonBox = styled.View`
   width: 100%;

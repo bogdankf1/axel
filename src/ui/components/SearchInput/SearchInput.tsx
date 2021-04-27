@@ -1,5 +1,5 @@
 import React, { useCallback, memo } from 'react'
-import { SearchInputWrapper } from './styles'
+import { SearchInputBox, SearchInputWrapper } from './styles'
 
 interface Props {
   value: string
@@ -16,11 +16,13 @@ const SearchInput = ({ value, placeholder, onChangeText }: Props) => {
   )
 
   return (
-    <SearchInputWrapper
-      value={value}
-      placeholder={placeholder}
-      onChangeText={handleSearchInputChange}
-    />
+    <SearchInputBox>
+      <SearchInputWrapper
+        value={value}
+        placeholder={placeholder}
+        onChangeText={handleSearchInputChange}
+      />
+    </SearchInputBox>
   )
 }
 

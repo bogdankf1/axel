@@ -6,12 +6,13 @@ interface AppButtonProps {
   onPress: () => void
   disabled?: boolean
   color?: string
+  textColor?: string
 }
 
-const AppButton = ({ title, onPress, disabled, color }: AppButtonProps) => {
+const AppButton = ({ title, onPress, disabled, color, textColor }: AppButtonProps) => {
   return (
     <AppButtonWrapper onPress={onPress} disabled={disabled} color={color}>
-      <AppButtonText>{title}</AppButtonText>
+      <AppButtonText textColor={textColor}>{title}</AppButtonText>
     </AppButtonWrapper>
   )
 }

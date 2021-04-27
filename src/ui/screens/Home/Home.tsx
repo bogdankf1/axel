@@ -39,7 +39,7 @@ const Home = () => {
           <HomeScreenButton color={colors.secondary.lightText} onPress={goToSelectCategoryScreen}>
             <HomeScreenButtonText>{t(fields.SEE_ALL_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
-          <HomeScreenButton color={colors.success} onPress={goToTopQuestionsScreen}>
+          <HomeScreenButton color={colors.secondary.lightText} onPress={goToTopQuestionsScreen}>
             <HomeScreenButtonText>{t(fields.TOP_QUESTIONS)}</HomeScreenButtonText>
           </HomeScreenButton>
         </HomeScreenButtonsBox>

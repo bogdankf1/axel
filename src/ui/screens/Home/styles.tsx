@@ -33,6 +33,6 @@ export const HomeScreenButton = styled.Pressable<HomeScreenButtonProps>`
 export const HomeScreenButtonText = styled.Text`
   font-size: 16px;
   text-align: center;
-  color: ${colors.primary.text};
+  color: ${colors.secondary.text};
   text-transform: uppercase;
 `

@@ -30,6 +30,7 @@ export const QuestionLikesText = styled.Text`
 export const QuestionCommentsBox = styled.View`
   width: 100%;
   padding: 10px;
+  flex: 1;
 `
 export const QuestionCommentsBoxTitle = styled.View`
   margin-top: 10px;
@@ -46,6 +47,7 @@ export const QuestionCommentsBoxTitleText = styled.Text`
 `
 export const QuestionCommentsListWrapper = styled.View`
   margin-top: 10px;
+  flex: 1;
 `
 export const QuestionCommentsItem = styled.View`
   margin-top: 10px;
@@ -82,4 +84,5 @@ export const QuestionAddCommentInput = styled.TextInput`
   margin-right: 8px;
   border-bottom-width: 1px;
   border-bottom-color: ${colors.primary.lightText};
+  height: 40px;
 `

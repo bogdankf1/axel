@@ -27,6 +27,7 @@ export const RegisterScreenTitle = styled.Text`
 export const RegisterInputField = styled.TextInput`
   margin-top: 8px;
   width: 100%;
+  height: 40px;
   border-bottom-width: 1px;
   border-bottom-color: ${colors.primary.lightText};
 `

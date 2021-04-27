@@ -192,7 +192,8 @@ const Register = () => {
               <AppButton
                 title={t(fields.SIGN_IN)}
                 onPress={goToSignIn}
-                color={colors.secondary.text}
+                color={colors.primary.bg}
+                textColor={colors.primary.text}
               />
             </LoginButtonWrapper>
           </RegisterScreenContent>

@@ -7,7 +7,7 @@ export const ConfirmModalBox = styled.View`
   padding: 10px;
   align-items: center;
   justify-content: space-between;
-  background: ${colors.secondary.bg};
+  background: #ffffff;
   border-radius: 10px;
 `
 export const ConfirmModalText = styled.Text`

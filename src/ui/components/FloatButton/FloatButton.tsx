@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { FloatButtonBox, FloatButtonText } from './styles'
+import { FloatButtonBox, FloatButtonInner, FloatButtonText } from './styles'
 
 interface Props {
   onPress: () => void
@@ -8,7 +8,9 @@ interface Props {
 const FloatButton = ({ onPress }: Props) => {
   return (
     <FloatButtonBox onPress={onPress}>
-      <FloatButtonText>{'+'}</FloatButtonText>
+      <FloatButtonInner>
+        <FloatButtonText>+</FloatButtonText>
+      </FloatButtonInner>
     </FloatButtonBox>
   )
 }

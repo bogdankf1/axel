@@ -42,7 +42,7 @@ interface DrawerLanguageItemTextProps {
   isActive: boolean
 }
 export const DrawerLanguageItemText = styled.Text<DrawerLanguageItemTextProps>`
-  color: ${colors.primary.lightText};
+  color: ${colors.secondary.bg};
 
   ${({ isActive }: DrawerLanguageItemTextProps) =>
     isActive &&
