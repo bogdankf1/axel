@@ -1,5 +1,5 @@
 const config = {
-  baseURL: 'https://salty-ocean-63923.herokuapp.com/',
+  baseURL: 'https://axel-service.herokuapp.com/',
   headers: {
     'Content-Type': 'application/json',
   },
