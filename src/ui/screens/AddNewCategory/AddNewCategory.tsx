@@ -11,6 +11,7 @@ import {
   AddNewCategoryInputField,
   AddNewCategoryButtonBox,
 } from './styles'
+import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
 
 const AddNewCategory = () => {
   const dispatch = useDispatch()
@@ -26,6 +27,7 @@ const AddNewCategory = () => {
   return (
     <ScreenWrapper>
       <AddNewCategoryScreenWrapper>
+        <ScreenTitle title={'New category'} />
         <AddNewCategoryInputFieldBox>
           <AddNewCategoryInputField
             value={categoryTitle}

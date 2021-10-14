@@ -5,6 +5,7 @@ import {
   GetCategoriesAction,
   AddCategoryAction,
   AddCategorySuccessAction,
+  GetTopCategoriesAction,
 } from './actionTypes'
 import {
   getCategoriesSuccess,
@@ -12,6 +13,8 @@ import {
   addCategorySuccess,
   addCategoryFail,
   getCategories,
+  getTopCategoriesSuccess,
+  getTopCategoriesFail,
 } from './actions'
 import categoriesApi from '../../api/categories'
 import { SCREEN_NAMES } from '../../navigation/AppNavigator.constants'
@@ -26,6 +29,19 @@ export const getCategoriesEpic: Epic = action$ => {
         return getCategoriesSuccess(response.data.data)
       } catch (e) {
         return getCategoriesFail(e.response.data.message)
+      }
+    }),
+  )
+}
+
+export const getTopCategoriesEpic: Epic = action$ => {
+  return action$.ofType(CategoriesActionTypes.GET_TOP_CATEGORIES).pipe(
+    mergeMap(async (action: GetTopCategoriesAction) => {
+      try {
+        const response = await categoriesApi.getTopCategories()
+        return getTopCategoriesSuccess(response.data.data)
+      } catch (e) {
+        return getTopCategoriesFail(e.response.data.message)
       }
     }),
   )
@@ -53,4 +69,4 @@ export const addCategorySuccessEpic: Epic = action$ => {
   )
 }
 
-export default [getCategoriesEpic, addCategoryEpic, addCategorySuccessEpic]
+export default [getCategoriesEpic, getTopCategoriesEpic, addCategoryEpic, addCategorySuccessEpic]

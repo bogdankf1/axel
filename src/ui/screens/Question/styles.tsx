@@ -1,3 +1,4 @@
+import { css } from 'styled-components'
 import styled from 'styled-components/native'
 import colors from '../../theme/colors'
 
@@ -37,10 +38,19 @@ export const QuestionCommentsBoxTitle = styled.View`
   flex-direction: row;
   align-items: center;
 `
-export const QuestionCommentsBoxTitleIcon = styled.ImageBackground`
+interface QuestionCommentsBoxTitleIconProps {
+  isExpanded: boolean
+}
+export const QuestionCommentsBoxTitleIcon = styled.ImageBackground<QuestionCommentsBoxTitleIconProps>`
   width: 30px;
   height: 30px;
   margin-right: 6px;
+  transform: rotate(0deg);
+  ${({ isExpanded }: QuestionCommentsBoxTitleIconProps) =>
+    isExpanded &&
+    css`
+      transform: rotate(180deg);
+    `}
 `
 export const QuestionCommentsBoxTitleText = styled.Text`
   font-size: 20px;

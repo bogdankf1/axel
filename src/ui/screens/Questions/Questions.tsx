@@ -11,11 +11,14 @@ import { CategoryQuestionsScreenWrapper } from './styles'
 import FloatButton from '../../components/FloatButton/FloatButton'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
+import { selectedCategorySelector } from '../../../app/categories/selectors'
+import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
 
 const Questions = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
   const questions = useSelector(questionsListSelector)
+  const selectedCategory = useSelector(selectedCategorySelector)
 
   const [searchValue, setSearchValue] = useState<string>('')
 
@@ -39,6 +42,7 @@ const Questions = () => {
   return (
     <ScreenWrapper>
       <CategoryQuestionsScreenWrapper>
+        <ScreenTitle title={selectedCategory.title} />
         <SearchInput
           value={searchValue}
           placeholder={'Search questions'}

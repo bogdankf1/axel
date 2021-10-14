@@ -12,6 +12,7 @@ import {
   AddNewQuestionInputField,
   AddNewQuestionButtonBox,
 } from './styles'
+import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
 
 const AddNewQuestion = () => {
   const dispatch = useDispatch()
@@ -29,6 +30,7 @@ const AddNewQuestion = () => {
   return (
     <ScreenWrapper>
       <AddNewQuestionScreenWrapper>
+        <ScreenTitle title={'New question'} />
         <AddNewQuestionInputFieldBox>
           <AddNewQuestionInputField
             value={questionTitle}

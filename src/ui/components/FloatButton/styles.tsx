@@ -17,10 +17,14 @@ export const FloatButtonBox = styled.Pressable`
 export const FloatButtonInner = styled.View`
   /* width: 32px;
   height: 70px; */
+  align-items: center;
+  justify-content: center;
+  /* width: 32px;
+  height: 32px; */
 `
 export const FloatButtonText = styled.Text`
   color: ${colors.primary.text};
-  font-size: 48px;
+  font-size: 68px;
   /* text-align: center; */
   /* height: 100%; */
   /* flex-direction: row;

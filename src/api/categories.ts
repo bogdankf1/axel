@@ -9,10 +9,13 @@ interface AddCategoryResponse {
 
 export const getCategories = () => client.get<GetGategoriesResponse>('categories')
 
+export const getTopCategories = () => client.get<GetGategoriesResponse>('categories-top')
+
 export const addCategory = (title: string) =>
   client.post<AddCategoryResponse>('categories', { title })
 
 export default {
   getCategories,
+  getTopCategories,
   addCategory,
 }

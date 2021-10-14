@@ -4,7 +4,7 @@ import fonts from '../../theme/fonts'
 
 export const HeaderContainer = styled.View`
   width: 100%;
-  height: 100px;
+  height: 70px;
   background-color: ${colors.primary.bg};
   padding: 0 20px 10px;
   flex-direction: row;

@@ -28,6 +28,8 @@ import {
   QuestionAddCommentBox,
   QuestionAddCommentInput,
 } from './styles'
+import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
+import { Pressable } from 'react-native'
 
 const QuestionScreen = () => {
   const dispatch = useDispatch()
@@ -38,6 +40,7 @@ const QuestionScreen = () => {
   const selectedCategory = useSelector(selectedCategorySelector)
   const currentQuestionComments = useSelector(currentQuestionCommentsSelector)
   const [newComment, setNewComment] = useState<string>('')
+  const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
   const addNewComment = useCallback(() => {
     if (!newComment) {
@@ -60,7 +63,7 @@ const QuestionScreen = () => {
     <ScreenWrapper>
       <QuestionScreenWrapper>
         <QuestionTextBox>
-          <QuestionText>{selectedQuestion.title}</QuestionText>
+          <ScreenTitle title={selectedQuestion.title} />
           <QuestionLikesContainer onPress={handleLikesPress}>
             <QuestionLikesIcon source={isQuestionLiked ? images.likeIconFilled : images.likeIcon} />
             <QuestionLikesText>{selectedQuestion.likes}</QuestionLikesText>
@@ -68,17 +71,21 @@ const QuestionScreen = () => {
         </QuestionTextBox>
         <QuestionCommentsBox>
           <QuestionCommentsBoxTitle>
-            <QuestionCommentsBoxTitleIcon source={images.expandArrow} />
+            <Pressable onPress={() => setIsExpanded(!isExpanded)}>
+              <QuestionCommentsBoxTitleIcon isExpanded={isExpanded} source={images.expandArrow} />
+            </Pressable>
             <QuestionCommentsBoxTitleText>{t(fields.COMMENTS)}</QuestionCommentsBoxTitleText>
           </QuestionCommentsBoxTitle>
-          <QuestionAddCommentBox>
-            <QuestionAddCommentInput
-              value={newComment}
-              placeholder={t(fields.ADD_COMMENT)}
-              onChangeText={onChangeNewComment}
-            />
-            <AppButton title={t(fields.SUBMIT)} onPress={addNewComment} />
-          </QuestionAddCommentBox>
+          {isExpanded ? (
+            <QuestionAddCommentBox>
+              <QuestionAddCommentInput
+                value={newComment}
+                placeholder={t(fields.ADD_COMMENT)}
+                onChangeText={onChangeNewComment}
+              />
+              <AppButton title={t(fields.SUBMIT)} onPress={addNewComment} />
+            </QuestionAddCommentBox>
+          ) : null}
           <QuestionCommentsList comments={currentQuestionComments} />
         </QuestionCommentsBox>
       </QuestionScreenWrapper>

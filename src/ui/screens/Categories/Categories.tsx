@@ -12,6 +12,7 @@ import { SelectCategoryScreenWrapper } from './styles'
 import FloatButton from '../../components/FloatButton/FloatButton'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
+import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
 
 const Categories = () => {
   const dispatch = useDispatch()
@@ -39,6 +40,7 @@ const Categories = () => {
   return (
     <ScreenWrapper>
       <SelectCategoryScreenWrapper>
+        <ScreenTitle title={'Categories'} />
         <SearchInput
           value={searchValue}
           placeholder={'Search categories'}

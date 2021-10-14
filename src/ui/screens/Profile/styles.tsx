@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native'
+import styled from 'styled-components/native'
 import colors from '../../theme/colors'
 
 export const ProfileScreenWrapper = styled.View`
@@ -13,6 +13,9 @@ export const ProfileInner = styled.View`
 export const ProfileSection = styled.View`
   width: 100%;
   margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom-color: ${colors.secondary.text};
+  border-bottom-width: 1px;
 `
 export const ProfileSectionTitleBox = styled.View`
   margin-bottom: 8px;
@@ -25,6 +28,6 @@ export const ProfileSectionValueBox = styled.View`
   padding-left: 8px;
 `
 export const ProfileSectionValue = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
   color: ${colors.secondary.lightText};
 `

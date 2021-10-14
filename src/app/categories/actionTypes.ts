@@ -4,10 +4,13 @@ export enum CategoriesActionTypes {
   GET_CATEGORIES = 'GET_CATEGORIES',
   GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS',
   GET_CATEGORIES_FAIL = 'GET_CATEGORIES_FAIL',
+  GET_TOP_CATEGORIES = 'GET_TOP_CATEGORIES',
+  GET_TOP_CATEGORIES_SUCCESS = 'GET_TOP_CATEGORIES_SUCCESS',
+  GET_TOP_CATEGORIES_FAIL = 'GET_TOP_CATEGORIES_FAIL',
   ADD_CATEGORY = 'ADD_CATEGORY',
   ADD_CATEGORY_SUCCESS = 'ADD_CATEGORY_SUCCESS',
   ADD_CATEGORY_FAIL = 'ADD_CATEGORY_FAIL',
-  SELECT_CATEGORY = 'SELECT_CATEGORY'
+  SELECT_CATEGORY = 'SELECT_CATEGORY',
 }
 
 export interface GetCategoriesAction {
@@ -21,6 +24,22 @@ export interface GetCategoriesSuccessAction {
 }
 export interface GetCategoriesFailAction {
   type: CategoriesActionTypes.GET_CATEGORIES_FAIL
+  payload: {
+    message: string
+  }
+}
+
+export interface GetTopCategoriesAction {
+  type: CategoriesActionTypes.GET_TOP_CATEGORIES
+}
+export interface GetTopCategoriesSuccessAction {
+  type: CategoriesActionTypes.GET_TOP_CATEGORIES_SUCCESS
+  payload: {
+    list: CategoryItem[]
+  }
+}
+export interface GetTopCategoriesFailAction {
+  type: CategoriesActionTypes.GET_TOP_CATEGORIES_FAIL
   payload: {
     message: string
   }
