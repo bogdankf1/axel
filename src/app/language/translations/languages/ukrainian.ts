@@ -1,7 +1,7 @@
 import fields from '../translationKeys'
 
 export default {
-  [fields.STUDENT_LAUNCHER]: 'Student Launcher',
+  [fields.APP_NAME]: 'Axel',
   [fields.SIGN_IN]: 'Sign In',
   [fields.SIGN_UP]: 'Sign Up',
   [fields.USERNAME]: 'Username',
@@ -21,9 +21,10 @@ export default {
   [fields.QUESTION]: 'Question',
   [fields.TOP_QUESTIONS]: 'Top Questions',
   [fields.LOG_OUT]: 'Logout',
-  [fields.PASSWORD_SHOULD_BE]: 'Password should be at least 8 characters with 1 number and 1 Capital letter',
+  [fields.PASSWORD_SHOULD_BE]:
+    'Password should be at least 8 characters with 1 number and 1 Capital letter',
   [fields.PASSWORDS_SHOULD_MATCH]: 'Passwords should match',
   [fields.PLEASE_FILL_ALL_FIELDS]: 'Please fill all fields',
   [fields.PLEASE_ENTER_CORRECT_NAME]: 'Please enter correct name',
-  [fields.INCORRECT_USERNAME]: 'Incorrect username'
+  [fields.INCORRECT_USERNAME]: 'Incorrect username',
 }

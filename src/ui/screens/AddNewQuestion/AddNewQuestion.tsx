@@ -1,20 +1,20 @@
 import React, { memo, useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigation } from '@react-navigation/core'
+// import { useNavigation } from '@react-navigation/core'
 import { translateFunctionSelector } from '../../../app/language/selectors'
 import fields from '../../../app/language/translations/translationKeys'
 import AppButton from '../../components/AppButton/AppButton'
 import ScreenWithScrollWrapper from '../../components/ScreenWithScrollWrapper/ScreenWithScrollWrapper'
 import { addQuestion } from '../../../app/questions/actions'
 import { selectedCategorySelector } from '../../../app/categories/selectors'
-import images from '../../theme/images'
-import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
-import {
-  SelectCategoryScreenTitleBox,
-  SelectCategoryScreenTitle,
-  BackIconBox,
-  BackIcon,
-} from '../SelectCategory/styles'
+// import images from '../../theme/images'
+// import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
+// import {
+//   SelectCategoryScreenTitleBox,
+//   SelectCategoryScreenTitle,
+//   BackIconBox,
+//   BackIcon,
+// } from '../SelectCategory/styles'
 import {
   AddNewQuestionScreenWrapper,
   AddNewQuestionInputFieldBox,
@@ -23,7 +23,7 @@ import {
 } from './styles'
 
 const AddNewQuestion = () => {
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
   const dispatch = useDispatch()
   const t = useSelector(translateFunctionSelector)
   const selectedCategory = useSelector(selectedCategorySelector)
@@ -35,19 +35,19 @@ const AddNewQuestion = () => {
   const handleSubmitButtonPress = useCallback(() => {
     dispatch(addQuestion(questionTitle, '', selectedCategory._id))
   }, [selectedCategory, questionTitle])
-  const goToQuestionsScreen = useCallback(() => {
-    navigation.navigate(SCREEN_NAMES.CATEGORY_QUESTIONS)
-  }, [])
+  // const goToQuestionsScreen = useCallback(() => {
+  //   navigation.navigate(SCREEN_NAMES.CATEGORY_QUESTIONS)
+  // }, [])
 
   return (
     <ScreenWithScrollWrapper>
       <AddNewQuestionScreenWrapper>
-        <SelectCategoryScreenTitleBox>
+        {/* <SelectCategoryScreenTitleBox>
           <BackIconBox onPress={goToQuestionsScreen}>
             <BackIcon source={images.expandArrow} />
           </BackIconBox>
           <SelectCategoryScreenTitle>{t(fields.ADD_NEW_QUESTION)}</SelectCategoryScreenTitle>
-        </SelectCategoryScreenTitleBox>
+        </SelectCategoryScreenTitleBox> */}
         <AddNewQuestionInputFieldBox>
           <AddNewQuestionInputField
             value={questionTitle}

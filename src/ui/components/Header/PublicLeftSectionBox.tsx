@@ -12,9 +12,7 @@ const PublicLeftSectionBox = ({ t, goToHomeScreen }: PublicLeftSectionBoxProps) 
   return (
     <PublicLeftSectionBoxWrapper onPress={goToHomeScreen}>
       <LogoContainer />
-      <HeaderTitle>
-        {t(fields.STUDENT_LAUNCHER)}
-      </HeaderTitle>
+      <HeaderTitle>{t(fields.APP_NAME)}</HeaderTitle>
     </PublicLeftSectionBoxWrapper>
   )
 }
