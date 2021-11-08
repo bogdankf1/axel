@@ -13,10 +13,13 @@ import FloatButton from '../../components/FloatButton/FloatButton'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
 import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
+import fields from '../../../app/language/translations/translationKeys'
+import { translateFunctionSelector } from '../../../app/language/selectors'
 
 const Categories = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
+  const t = useSelector(translateFunctionSelector)
   const categories = useSelector(categoriesListSelector)
 
   const [searchValue, setSearchValue] = useState<string>('')
@@ -40,10 +43,10 @@ const Categories = () => {
   return (
     <ScreenWrapper>
       <SelectCategoryScreenWrapper>
-        <ScreenTitle title={'Categories'} />
+        <ScreenTitle title={t(fields.CATEGORIES)} />
         <SearchInput
           value={searchValue}
-          placeholder={'Search categories'}
+          placeholder={t(fields.SEARCH_CATEGORIES)}
           onChangeText={setSearchValue}
         />
         {filteredCategories.length ? (
@@ -52,7 +55,7 @@ const Categories = () => {
             onCategoryPress={goToCategoryQuestionsScreen}
           />
         ) : (
-          <EmptyListMessage message={'No categories were found'} />
+          <EmptyListMessage message={t(fields.NO_CATEGORIES_WERE_FOUND)} />
         )}
         <FloatButton onPress={goToAddNewCategoryScreen} />
       </SelectCategoryScreenWrapper>

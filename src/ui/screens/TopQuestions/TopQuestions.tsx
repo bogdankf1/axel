@@ -10,6 +10,7 @@ import { getTopQuestions, selectQuestion, getComments } from '../../../app/quest
 import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
 import { TopQuestionsScreenWrapper } from './styles'
 import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
+import fields from '../../../app/language/translations/translationKeys'
 
 const TopQuestionsScreen = () => {
   const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const TopQuestionsScreen = () => {
   return (
     <ScreenWrapper>
       <TopQuestionsScreenWrapper>
-        <ScreenTitle title="Top 10" />
+        <ScreenTitle title={t(fields.TOP_10)} />
         <TopQuestionsList questions={questions} goToQuestion={goToQuestion} />
       </TopQuestionsScreenWrapper>
     </ScreenWrapper>

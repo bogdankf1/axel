@@ -5,6 +5,7 @@ import fonts from '../../theme/fonts'
 interface AppButtonWrapperProps {
   disabled?: boolean
   color?: string
+  width?: string
 }
 export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
   width: 90px;
@@ -24,6 +25,11 @@ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
     color &&
     css`
       background-color: ${color};
+    `}
+  ${({ width }: AppButtonWrapperProps) =>
+    width &&
+    css`
+      width: ${width};
     `}
 `
 interface AppButtonTextProps {

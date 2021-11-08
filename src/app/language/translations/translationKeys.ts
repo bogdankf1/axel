@@ -24,6 +24,21 @@ const fields = {
   PLEASE_FILL_ALL_FIELDS: 'please-fill-all-fields',
   PLEASE_ENTER_CORRECT_NAME: 'please-enter-correct-name',
   INCORRECT_USERNAME: 'incorrect-username',
+  POSTS_LIKED: 'posts-liked',
+  QUESTIONS_POPULARITY: 'questions-popularity',
+  CATEGORIES_POPULARITY: 'categories-popularity',
+  SEARCH_CATEGORIES: 'search-categories',
+  SEARCH_QUESTIONS: 'search-questions',
+  NO_CATEGORIES_WERE_FOUND: 'no-categories-were-found',
+  NO_QUESTIONS_WERE_FOUND: 'no-questions-were-found',
+  TOP_10: 'top-10',
+  PROFILE: 'profile',
+  CHARTS: 'charts',
+  ARE_YOU_SURE_WANT_TO_LOGOUT: 'are-you-sure-want-to-logout',
+  CANCEL: 'cancel',
+  CONFIRM: 'confirm',
+  NEW_QUESTION: 'new-question',
+  NEW_CATEGORY: 'new-category',
 }
 
 export default fields

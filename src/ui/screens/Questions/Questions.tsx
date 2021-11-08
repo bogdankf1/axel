@@ -13,11 +13,14 @@ import SearchInput from '../../components/SearchInput/SearchInput'
 import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
 import { selectedCategorySelector } from '../../../app/categories/selectors'
 import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
+import fields from '../../../app/language/translations/translationKeys'
+import { translateFunctionSelector } from '../../../app/language/selectors'
 
 const Questions = () => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
   const questions = useSelector(questionsListSelector)
+  const t = useSelector(translateFunctionSelector)
   const selectedCategory = useSelector(selectedCategorySelector)
 
   const [searchValue, setSearchValue] = useState<string>('')
@@ -45,13 +48,13 @@ const Questions = () => {
         <ScreenTitle title={selectedCategory.title} />
         <SearchInput
           value={searchValue}
-          placeholder={'Search questions'}
+          placeholder={t(fields.SEARCH_QUESTIONS)}
           onChangeText={setSearchValue}
         />
         {filteredQuestions.length ? (
           <QuestionsList questions={filteredQuestions} onQuestionPress={goToQuestionScreen} />
         ) : (
-          <EmptyListMessage message={'No questions were found'} />
+          <EmptyListMessage message={t(fields.NO_QUESTIONS_WERE_FOUND)} />
         )}
       </CategoryQuestionsScreenWrapper>
       <FloatButton onPress={goToAddNewQuestionsScreen} />

@@ -27,7 +27,7 @@ const AddNewCategory = () => {
   return (
     <ScreenWrapper>
       <AddNewCategoryScreenWrapper>
-        <ScreenTitle title={'New category'} />
+        <ScreenTitle title={t(fields.NEW_CATEGORY)} />
         <AddNewCategoryInputFieldBox>
           <AddNewCategoryInputField
             value={categoryTitle}

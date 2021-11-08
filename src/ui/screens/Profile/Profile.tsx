@@ -20,10 +20,10 @@ const Profile = () => {
     <ScreenWrapper>
       <ProfileScreenWrapper>
         <ProfileInner>
-          <ProfileItem title={'Username'} value={user.username} />
-          <ProfileItem title={'Firstname'} value={user.firstname} />
-          <ProfileItem title={'Lastname'} value={user.lastname} />
-          <ProfileItem title={'Posts liked'} value={`${user.likedPostsIds.length || 0}`} />
+          <ProfileItem title={t(fields.USERNAME)} value={user.username} />
+          <ProfileItem title={t(fields.FIRSTNAME)} value={user.firstname} />
+          <ProfileItem title={t(fields.LASTNAME)} value={user.lastname} />
+          <ProfileItem title={t(fields.POSTS_LIKED)} value={`${user.likedPostsIds.length || 0}`} />
         </ProfileInner>
       </ProfileScreenWrapper>
     </ScreenWrapper>

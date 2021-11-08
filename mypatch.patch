@@ -1,0 +1,607 @@
+diff --git a/SECURITY.md b/SECURITY.md
+new file mode 100644
+index 0000000..034e848
+--- /dev/null
++++ b/SECURITY.md
+@@ -0,0 +1,21 @@
++# Security Policy
++
++## Supported Versions
++
++Use this section to tell people about which versions of your project are
++currently being supported with security updates.
++
++| Version | Supported          |
++| ------- | ------------------ |
++| 5.1.x   | :white_check_mark: |
++| 5.0.x   | :x:                |
++| 4.0.x   | :white_check_mark: |
++| < 4.0   | :x:                |
++
++## Reporting a Vulnerability
++
++Use this section to tell people how to report a vulnerability.
++
++Tell them where to go, how often they can expect to get an update on a
++reported vulnerability, what to expect if the vulnerability is accepted or
++declined, etc.
+diff --git a/src/app/language/translations/languages/english.ts b/src/app/language/translations/languages/english.ts
+index bb6261d..5b1d2b6 100644
+--- a/src/app/language/translations/languages/english.ts
++++ b/src/app/language/translations/languages/english.ts
+@@ -27,4 +27,19 @@ export default {
+   [fields.PLEASE_FILL_ALL_FIELDS]: 'Please fill all fields',
+   [fields.PLEASE_ENTER_CORRECT_NAME]: 'Please enter correct name',
+   [fields.INCORRECT_USERNAME]: 'Incorrect username',
++  [fields.POSTS_LIKED]: 'Posts liked',
++  [fields.QUESTIONS_POPULARITY]: 'Questions popularity',
++  [fields.CATEGORIES_POPULARITY]: 'Categories popularity',
++  [fields.SEARCH_CATEGORIES]: 'Search categories',
++  [fields.SEARCH_QUESTIONS]: 'Search questions',
++  [fields.NO_CATEGORIES_WERE_FOUND]: 'No categories were found',
++  [fields.NO_QUESTIONS_WERE_FOUND]: 'No questions were found',
++  [fields.TOP_10]: 'Top 10',
++  [fields.PROFILE]: 'Profile',
++  [fields.CHARTS]: 'Charts',
++  [fields.ARE_YOU_SURE_WANT_TO_LOGOUT]: 'Are you sure want to logout?',
++  [fields.CANCEL]: 'Cancel',
++  [fields.CONFIRM]: 'Confirm',
++  [fields.NEW_QUESTION]: 'New question',
++  [fields.NEW_CATEGORY]: 'New category',
+ }
+diff --git a/src/app/language/translations/languages/index.ts b/src/app/language/translations/languages/index.ts
+index 5020d2d..b17d88c 100644
+--- a/src/app/language/translations/languages/index.ts
++++ b/src/app/language/translations/languages/index.ts
+@@ -1,7 +1,9 @@
+ import ua from './ukrainian'
++import ru from './russian'
+ import en from './english'
+ 
+ export default {
+   ua,
+-  en
+-}
+\ No newline at end of file
++  ru,
++  en,
++}
+diff --git a/src/app/language/translations/languages/russian.ts b/src/app/language/translations/languages/russian.ts
+new file mode 100644
+index 0000000..b49a922
+--- /dev/null
++++ b/src/app/language/translations/languages/russian.ts
+@@ -0,0 +1,45 @@
++import fields from '../translationKeys'
++
++export default {
++  [fields.APP_NAME]: 'Axel',
++  [fields.SIGN_IN]: 'Войти',
++  [fields.SIGN_UP]: 'Зарегистрироваться',
++  [fields.USERNAME]: 'Логин',
++  [fields.PASSWORD]: 'Пароль',
++  [fields.CONFIRM_PASSWORD]: 'Подтвердите пароль',
++  [fields.FIRSTNAME]: 'Имя',
++  [fields.LASTNAME]: 'Фамилия',
++  [fields.SEE_ALL_QUESTIONS]: 'Посмотреть все вопросы',
++  [fields.ADD_NEW_QUESTION]: 'Добавить новый вопрос',
++  [fields.CATEGORIES]: 'Категории',
++  [fields.ADD_NEW_CATEGORY]: 'Добавить новую категорию',
++  [fields.CATEGORY_TITLE]: 'Название категории',
++  [fields.SUBMIT]: 'Сохранить',
++  [fields.QUESTION_TITLE]: 'Название вопроса',
++  [fields.COMMENTS]: 'Комментарии',
++  [fields.ADD_COMMENT]: 'Добавить комментарий',
++  [fields.QUESTION]: 'Вопросы',
++  [fields.TOP_QUESTIONS]: 'Топ вопросов',
++  [fields.LOG_OUT]: 'Выйти',
++  [fields.PASSWORD_SHOULD_BE]:
++    'Пароль должен быть как минимум 8 символов с 1 цифрой и 1 Большой буквой',
++  [fields.PASSWORDS_SHOULD_MATCH]: 'Пароли должны совпадать',
++  [fields.PLEASE_FILL_ALL_FIELDS]: 'Пожалуйста заполните все поля',
++  [fields.PLEASE_ENTER_CORRECT_NAME]: 'Пожалуйста введите корректное имя',
++  [fields.INCORRECT_USERNAME]: 'Некорректный юзернейм',
++  [fields.POSTS_LIKED]: 'Вопросов понравилось',
++  [fields.QUESTIONS_POPULARITY]: 'Популярность вопросов',
++  [fields.CATEGORIES_POPULARITY]: 'Популярность категорий',
++  [fields.SEARCH_CATEGORIES]: 'Искать категории',
++  [fields.SEARCH_QUESTIONS]: 'Искать вопросы',
++  [fields.NO_CATEGORIES_WERE_FOUND]: 'Категорий не найдено',
++  [fields.NO_QUESTIONS_WERE_FOUND]: 'Вопросов не найдено',
++  [fields.TOP_10]: 'Топ 10',
++  [fields.PROFILE]: 'Профиль',
++  [fields.CHARTS]: 'Статистика',
++  [fields.ARE_YOU_SURE_WANT_TO_LOGOUT]: 'Вы уверены, что хотите выйти?',
++  [fields.CANCEL]: 'Отменить',
++  [fields.CONFIRM]: 'Подтвердить',
++  [fields.NEW_QUESTION]: 'Новый вопрос',
++  [fields.NEW_CATEGORY]: 'Новая категория',
++}
+diff --git a/src/app/language/translations/languages/ukrainian.ts b/src/app/language/translations/languages/ukrainian.ts
+index bb6261d..8b462f7 100644
+--- a/src/app/language/translations/languages/ukrainian.ts
++++ b/src/app/language/translations/languages/ukrainian.ts
+@@ -2,29 +2,44 @@ import fields from '../translationKeys'
+ 
+ export default {
+   [fields.APP_NAME]: 'Axel',
+-  [fields.SIGN_IN]: 'Sign In',
+-  [fields.SIGN_UP]: 'Sign Up',
+-  [fields.USERNAME]: 'Username',
+-  [fields.PASSWORD]: 'Password',
+-  [fields.CONFIRM_PASSWORD]: 'Confirm Password',
+-  [fields.FIRSTNAME]: 'Firstname',
+-  [fields.LASTNAME]: 'Lastname',
+-  [fields.SEE_ALL_QUESTIONS]: 'See all questions',
+-  [fields.ADD_NEW_QUESTION]: 'Add new question',
+-  [fields.CATEGORIES]: 'Categories',
+-  [fields.ADD_NEW_CATEGORY]: 'Add new category',
+-  [fields.CATEGORY_TITLE]: 'Category title',
+-  [fields.SUBMIT]: 'Submit',
+-  [fields.QUESTION_TITLE]: 'Question title',
+-  [fields.COMMENTS]: 'Comments',
+-  [fields.ADD_COMMENT]: 'Add Comment',
+-  [fields.QUESTION]: 'Question',
+-  [fields.TOP_QUESTIONS]: 'Top Questions',
+-  [fields.LOG_OUT]: 'Logout',
++  [fields.SIGN_IN]: 'Увійти',
++  [fields.SIGN_UP]: 'Зареєструватися',
++  [fields.USERNAME]: 'Логін',
++  [fields.PASSWORD]: 'Пароль',
++  [fields.CONFIRM_PASSWORD]: 'Підвердіть пароль',
++  [fields.FIRSTNAME]: "Ім'я",
++  [fields.LASTNAME]: 'Прізвище',
++  [fields.SEE_ALL_QUESTIONS]: 'Подивится усі запитання',
++  [fields.ADD_NEW_QUESTION]: 'Додати нове запитання',
++  [fields.CATEGORIES]: 'Категорії',
++  [fields.ADD_NEW_CATEGORY]: 'Додати нову категорію',
++  [fields.CATEGORY_TITLE]: 'Назва категорії',
++  [fields.SUBMIT]: 'Зберегти',
++  [fields.QUESTION_TITLE]: 'Назва запитання',
++  [fields.COMMENTS]: 'Коментарі',
++  [fields.ADD_COMMENT]: 'Додати коментар',
++  [fields.QUESTION]: 'Запитання',
++  [fields.TOP_QUESTIONS]: 'Топ запитаннь',
++  [fields.LOG_OUT]: 'Вийти',
+   [fields.PASSWORD_SHOULD_BE]:
+-    'Password should be at least 8 characters with 1 number and 1 Capital letter',
+-  [fields.PASSWORDS_SHOULD_MATCH]: 'Passwords should match',
+-  [fields.PLEASE_FILL_ALL_FIELDS]: 'Please fill all fields',
+-  [fields.PLEASE_ENTER_CORRECT_NAME]: 'Please enter correct name',
+-  [fields.INCORRECT_USERNAME]: 'Incorrect username',
++    'Пароль повинен бути щонайменш 8 символів з 1 цифрою та 1 Великою літерою',
++  [fields.PASSWORDS_SHOULD_MATCH]: 'Паролі мають збігатися',
++  [fields.PLEASE_FILL_ALL_FIELDS]: 'Будь ласка заповніть усі поля',
++  [fields.PLEASE_ENTER_CORRECT_NAME]: "Будь ласка введіть коректне ім'я",
++  [fields.INCORRECT_USERNAME]: 'Некоректний юзернейм',
++  [fields.POSTS_LIKED]: 'Запитаннь сподобалося',
++  [fields.QUESTIONS_POPULARITY]: 'Популярність запитаннь',
++  [fields.CATEGORIES_POPULARITY]: 'Популярність категорій',
++  [fields.SEARCH_CATEGORIES]: 'Шукати категорії',
++  [fields.SEARCH_QUESTIONS]: 'Шукати запитання',
++  [fields.NO_CATEGORIES_WERE_FOUND]: 'Категорій не знайдено',
++  [fields.NO_QUESTIONS_WERE_FOUND]: 'Запитаннь не знайдено',
++  [fields.TOP_10]: 'Топ 10',
++  [fields.PROFILE]: 'Профіль',
++  [fields.CHARTS]: 'Статистика',
++  [fields.ARE_YOU_SURE_WANT_TO_LOGOUT]: 'Ви впевнені, що бажаєте вийти?',
++  [fields.CANCEL]: 'Відмінити',
++  [fields.CONFIRM]: 'Прийняти',
++  [fields.NEW_QUESTION]: 'Нове запитання',
++  [fields.NEW_CATEGORY]: 'Нова категорія',
+ }
+diff --git a/src/app/language/translations/translationKeys.ts b/src/app/language/translations/translationKeys.ts
+index ad98f43..786b3b5 100644
+--- a/src/app/language/translations/translationKeys.ts
++++ b/src/app/language/translations/translationKeys.ts
+@@ -24,6 +24,21 @@ const fields = {
+   PLEASE_FILL_ALL_FIELDS: 'please-fill-all-fields',
+   PLEASE_ENTER_CORRECT_NAME: 'please-enter-correct-name',
+   INCORRECT_USERNAME: 'incorrect-username',
++  POSTS_LIKED: 'posts-liked',
++  QUESTIONS_POPULARITY: 'questions-popularity',
++  CATEGORIES_POPULARITY: 'categories-popularity',
++  SEARCH_CATEGORIES: 'search-categories',
++  SEARCH_QUESTIONS: 'search-questions',
++  NO_CATEGORIES_WERE_FOUND: 'no-categories-were-found',
++  NO_QUESTIONS_WERE_FOUND: 'no-questions-were-found',
++  TOP_10: 'top-10',
++  PROFILE: 'profile',
++  CHARTS: 'charts',
++  ARE_YOU_SURE_WANT_TO_LOGOUT: 'are-you-sure-want-to-logout',
++  CANCEL: 'cancel',
++  CONFIRM: 'confirm',
++  NEW_QUESTION: 'new-question',
++  NEW_CATEGORY: 'new-category',
+ }
+ 
+ export default fields
+diff --git a/src/app/language/utils.ts b/src/app/language/utils.ts
+index 9eca444..321a529 100644
+--- a/src/app/language/utils.ts
++++ b/src/app/language/utils.ts
+@@ -3,6 +3,6 @@ import StorageService from '../app/StorageService'
+ 
+ export async function getLanguage() {
+   const storeLanguage = await StorageService.read('language')
+-  const language = storeLanguage || 'en'
+-  return translations[language] ? language : 'en'
++  const language = storeLanguage || 'ua'
++  return translations[language] ? language : 'ua'
+ }
+diff --git a/src/navigation/DrawerContent/DrawerContent.tsx b/src/navigation/DrawerContent/DrawerContent.tsx
+index 84a0e71..4851d63 100644
+--- a/src/navigation/DrawerContent/DrawerContent.tsx
++++ b/src/navigation/DrawerContent/DrawerContent.tsx
+@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
+ import { logout } from '../../app/auth/actions'
+ import { isLoggedInSelector } from '../../app/auth/selectors'
+ import { changeLanguage } from '../../app/language/actions'
+-import { currentLanguageSelector } from '../../app/language/selectors'
++import { currentLanguageSelector, translateFunctionSelector } from '../../app/language/selectors'
++import fields from '../../app/language/translations/translationKeys'
+ import ConfirmModal from '../../ui/components/ConfirmModal/ConfirmModal'
+ import { SCREEN_NAMES } from '../AppNavigator.constants'
+ import {
+@@ -29,6 +30,7 @@ const DrawerContent = ({ navigation }: Props) => {
+   const dispatch = useDispatch()
+   const isLoggedIn = useSelector(isLoggedInSelector)
+   const language = useSelector(currentLanguageSelector)
++  const t = useSelector(translateFunctionSelector)
+ 
+   const goToPage = useCallback(
+     (screenName: string) => {
+@@ -63,37 +65,37 @@ const DrawerContent = ({ navigation }: Props) => {
+             {!isLoggedIn ? (
+               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.LOGIN)}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Sign In</DrawerItemText>
++                <DrawerItemText>{t(fields.SIGN_IN)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             {isLoggedIn ? (
+               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.SELECT_CATEGORY)}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Categories</DrawerItemText>
++                <DrawerItemText>{t(fields.CATEGORIES)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             {isLoggedIn ? (
+               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.TOP_QUESTIONS)}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Top 10</DrawerItemText>
++                <DrawerItemText>{t(fields.TOP_10)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             {isLoggedIn ? (
+               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.PROFILE)}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Profile</DrawerItemText>
++                <DrawerItemText>{t(fields.PROFILE)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             {isLoggedIn ? (
+               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.CHARTS)}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Charts</DrawerItemText>
++                <DrawerItemText>{t(fields.CHARTS)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             {isLoggedIn ? (
+               <DrawerItem onPress={openConfirmModal}>
+                 <DrawerItemIcon />
+-                <DrawerItemText>Logout</DrawerItemText>
++                <DrawerItemText>{t(fields.LOG_OUT)}</DrawerItemText>
+               </DrawerItem>
+             ) : null}
+             <DrawerItem>
+@@ -105,6 +107,9 @@ const DrawerContent = ({ navigation }: Props) => {
+                 <DrawerLanguageItem onPress={() => onChangeLanguage('ua')}>
+                   <DrawerLanguageItemText isActive={language === 'ua'}>UA</DrawerLanguageItemText>
+                 </DrawerLanguageItem>
++                <DrawerLanguageItem onPress={() => onChangeLanguage('ru')}>
++                  <DrawerLanguageItemText isActive={language === 'ru'}>RU</DrawerLanguageItemText>
++                </DrawerLanguageItem>
+               </DrawerLanguageItemBox>
+             </DrawerItem>
+           </DrawerItemsBox>
+@@ -114,7 +119,7 @@ const DrawerContent = ({ navigation }: Props) => {
+         isOpen={isConfirmModalOpen}
+         onCancel={closeConfirmModal}
+         onConfirm={onLogout}
+-        text={'Are you sure want to logout?'}
++        text={t(fields.ARE_YOU_SURE_WANT_TO_LOGOUT)}
+       />
+     </>
+   )
+diff --git a/src/store/configureStore.ts b/src/store/configureStore.ts
+index d49af8a..38013ed 100644
+--- a/src/store/configureStore.ts
++++ b/src/store/configureStore.ts
+@@ -22,9 +22,9 @@ export const configureStore = (initialState = {}) => {
+   const enhancer = composeEnhancers(...middlewares)
+ 
+   const store = createStore(rootReducer, initialState, enhancer)
+-  const locale = 'en'
++  const locale = 'ua'
+ 
+-  const lang = translations[locale] ? locale : 'ua'
++  const lang = translations[locale] ? locale : 'en'
+ 
+   store.dispatch(setLanguage(lang, translations[lang]))
+   epicMiddleware.run(rootEpic)
+diff --git a/src/ui/components/AppButton/AppButton.tsx b/src/ui/components/AppButton/AppButton.tsx
+index 34a5c63..19a3b96 100644
+--- a/src/ui/components/AppButton/AppButton.tsx
++++ b/src/ui/components/AppButton/AppButton.tsx
+@@ -7,11 +7,12 @@ interface AppButtonProps {
+   disabled?: boolean
+   color?: string
+   textColor?: string
++  width?: string
+ }
+ 
+-const AppButton = ({ title, onPress, disabled, color, textColor }: AppButtonProps) => {
++const AppButton = ({ title, onPress, disabled, color, textColor, width }: AppButtonProps) => {
+   return (
+-    <AppButtonWrapper onPress={onPress} disabled={disabled} color={color}>
++    <AppButtonWrapper onPress={onPress} disabled={disabled} color={color} width={width}>
+       <AppButtonText textColor={textColor}>{title}</AppButtonText>
+     </AppButtonWrapper>
+   )
+diff --git a/src/ui/components/AppButton/styles.tsx b/src/ui/components/AppButton/styles.tsx
+index 936e582..656878a 100644
+--- a/src/ui/components/AppButton/styles.tsx
++++ b/src/ui/components/AppButton/styles.tsx
+@@ -5,6 +5,7 @@ import fonts from '../../theme/fonts'
+ interface AppButtonWrapperProps {
+   disabled?: boolean
+   color?: string
++  width?: string
+ }
+ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
+   width: 90px;
+@@ -25,6 +26,11 @@ export const AppButtonWrapper = styled.Pressable<AppButtonWrapperProps>`
+     css`
+       background-color: ${color};
+     `}
++  ${({ width }: AppButtonWrapperProps) =>
++    width &&
++    css`
++      width: ${width};
++    `}
+ `
+ interface AppButtonTextProps {
+   textColor?: string
+diff --git a/src/ui/components/ConfirmModal/ConfirmModal.tsx b/src/ui/components/ConfirmModal/ConfirmModal.tsx
+index cc29e32..9d92468 100644
+--- a/src/ui/components/ConfirmModal/ConfirmModal.tsx
++++ b/src/ui/components/ConfirmModal/ConfirmModal.tsx
+@@ -1,4 +1,7 @@
+ import React, { memo } from 'react'
++import { useSelector } from 'react-redux'
++import { translateFunctionSelector } from '../../../app/language/selectors'
++import fields from '../../../app/language/translations/translationKeys'
+ import colors from '../../theme/colors'
+ import AppButton from '../AppButton/AppButton'
+ import Popup from '../Popup'
+@@ -12,13 +15,14 @@ interface Props {
+ }
+ 
+ const ConfirmModal = ({ isOpen, onCancel, onConfirm, text }: Props) => {
++  const t = useSelector(translateFunctionSelector)
+   return isOpen ? (
+     <Popup>
+       <ConfirmModalBox>
+         <ConfirmModalText>{text}</ConfirmModalText>
+         <ConfirmModalButtons>
+-          <AppButton title={'Cancel'} onPress={onCancel} color={colors.error} />
+-          <AppButton title={'Confirm'} onPress={onConfirm} />
++          <AppButton title={t(fields.CANCEL)} onPress={onCancel} color={colors.error} />
++          <AppButton title={t(fields.CONFIRM)} onPress={onConfirm} />
+         </ConfirmModalButtons>
+       </ConfirmModalBox>
+     </Popup>
+diff --git a/src/ui/screens/AddNewCategory/AddNewCategory.tsx b/src/ui/screens/AddNewCategory/AddNewCategory.tsx
+index 4422a65..498c37e 100644
+--- a/src/ui/screens/AddNewCategory/AddNewCategory.tsx
++++ b/src/ui/screens/AddNewCategory/AddNewCategory.tsx
+@@ -27,7 +27,7 @@ const AddNewCategory = () => {
+   return (
+     <ScreenWrapper>
+       <AddNewCategoryScreenWrapper>
+-        <ScreenTitle title={'New category'} />
++        <ScreenTitle title={t(fields.NEW_CATEGORY)} />
+         <AddNewCategoryInputFieldBox>
+           <AddNewCategoryInputField
+             value={categoryTitle}
+diff --git a/src/ui/screens/AddNewQuestion/AddNewQuestion.tsx b/src/ui/screens/AddNewQuestion/AddNewQuestion.tsx
+index 85474c2..f627d16 100644
+--- a/src/ui/screens/AddNewQuestion/AddNewQuestion.tsx
++++ b/src/ui/screens/AddNewQuestion/AddNewQuestion.tsx
+@@ -30,7 +30,7 @@ const AddNewQuestion = () => {
+   return (
+     <ScreenWrapper>
+       <AddNewQuestionScreenWrapper>
+-        <ScreenTitle title={'New question'} />
++        <ScreenTitle title={t(fields.NEW_QUESTION)} />
+         <AddNewQuestionInputFieldBox>
+           <AddNewQuestionInputField
+             value={questionTitle}
+diff --git a/src/ui/screens/Categories/Categories.tsx b/src/ui/screens/Categories/Categories.tsx
+index f59f158..7708619 100644
+--- a/src/ui/screens/Categories/Categories.tsx
++++ b/src/ui/screens/Categories/Categories.tsx
+@@ -13,10 +13,13 @@ import FloatButton from '../../components/FloatButton/FloatButton'
+ import SearchInput from '../../components/SearchInput/SearchInput'
+ import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
+ import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
++import fields from '../../../app/language/translations/translationKeys'
++import { translateFunctionSelector } from '../../../app/language/selectors'
+ 
+ const Categories = () => {
+   const dispatch = useDispatch()
+   const navigation = useNavigation()
++  const t = useSelector(translateFunctionSelector)
+   const categories = useSelector(categoriesListSelector)
+ 
+   const [searchValue, setSearchValue] = useState<string>('')
+@@ -40,10 +43,10 @@ const Categories = () => {
+   return (
+     <ScreenWrapper>
+       <SelectCategoryScreenWrapper>
+-        <ScreenTitle title={'Categories'} />
++        <ScreenTitle title={t(fields.CATEGORIES)} />
+         <SearchInput
+           value={searchValue}
+-          placeholder={'Search categories'}
++          placeholder={t(fields.SEARCH_CATEGORIES)}
+           onChangeText={setSearchValue}
+         />
+         {filteredCategories.length ? (
+@@ -52,7 +55,7 @@ const Categories = () => {
+             onCategoryPress={goToCategoryQuestionsScreen}
+           />
+         ) : (
+-          <EmptyListMessage message={'No categories were found'} />
++          <EmptyListMessage message={t(fields.NO_CATEGORIES_WERE_FOUND)} />
+         )}
+         <FloatButton onPress={goToAddNewCategoryScreen} />
+       </SelectCategoryScreenWrapper>
+diff --git a/src/ui/screens/Charts/Charts.tsx b/src/ui/screens/Charts/Charts.tsx
+index 90f8822..56d324f 100644
+--- a/src/ui/screens/Charts/Charts.tsx
++++ b/src/ui/screens/Charts/Charts.tsx
+@@ -174,7 +174,7 @@ const Charts = () => {
+         <ChartsInner>
+           <ChartsSection>
+             <ChartsSectionTitleBox>
+-              <ChartsSectionTitle>{'Questions popularity'}</ChartsSectionTitle>
++              <ChartsSectionTitle>{t(fields.QUESTIONS_POPULARITY)}</ChartsSectionTitle>
+             </ChartsSectionTitleBox>
+             <PieChart
+               data={formattedQuestionsData}
+@@ -233,7 +233,7 @@ const Charts = () => {
+           </ChartsSection>
+           <ChartsSection>
+             <ChartsSectionTitleBox>
+-              <ChartsSectionTitle>{'Categories popularity'}</ChartsSectionTitle>
++              <ChartsSectionTitle>{t(fields.CATEGORIES_POPULARITY)}</ChartsSectionTitle>
+             </ChartsSectionTitleBox>
+             <PieChart
+               data={formattedData}
+diff --git a/src/ui/screens/Login/Login.tsx b/src/ui/screens/Login/Login.tsx
+index b7eb748..686ca39 100644
+--- a/src/ui/screens/Login/Login.tsx
++++ b/src/ui/screens/Login/Login.tsx
+@@ -110,6 +110,7 @@ const Login = () => {
+               <AppButton
+                 title={t(fields.SIGN_IN)}
+                 onPress={signIn}
++                width={'180px'}
+                 disabled={isSignInButtonDisabled}
+               />
+             </LoginButtonWrapper>
+@@ -118,6 +119,7 @@ const Login = () => {
+                 title={t(fields.SIGN_UP)}
+                 onPress={goToSignUp}
+                 color={colors.primary.bg}
++                width={'180px'}
+                 textColor={colors.primary.text}
+               />
+             </RegisterButtonWrapper>
+diff --git a/src/ui/screens/Profile/Profile.tsx b/src/ui/screens/Profile/Profile.tsx
+index 5a55f33..7f03b03 100644
+--- a/src/ui/screens/Profile/Profile.tsx
++++ b/src/ui/screens/Profile/Profile.tsx
+@@ -20,10 +20,10 @@ const Profile = () => {
+     <ScreenWrapper>
+       <ProfileScreenWrapper>
+         <ProfileInner>
+-          <ProfileItem title={'Username'} value={user.username} />
+-          <ProfileItem title={'Firstname'} value={user.firstname} />
+-          <ProfileItem title={'Lastname'} value={user.lastname} />
+-          <ProfileItem title={'Posts liked'} value={`${user.likedPostsIds.length || 0}`} />
++          <ProfileItem title={t(fields.USERNAME)} value={user.username} />
++          <ProfileItem title={t(fields.FIRSTNAME)} value={user.firstname} />
++          <ProfileItem title={t(fields.LASTNAME)} value={user.lastname} />
++          <ProfileItem title={t(fields.POSTS_LIKED)} value={`${user.likedPostsIds.length || 0}`} />
+         </ProfileInner>
+       </ProfileScreenWrapper>
+     </ScreenWrapper>
+diff --git a/src/ui/screens/Questions/Questions.tsx b/src/ui/screens/Questions/Questions.tsx
+index 481f35e..b6c2c5e 100644
+--- a/src/ui/screens/Questions/Questions.tsx
++++ b/src/ui/screens/Questions/Questions.tsx
+@@ -13,11 +13,14 @@ import SearchInput from '../../components/SearchInput/SearchInput'
+ import EmptyListMessage from '../../components/EmptyListMessage/EmptyListMessage'
+ import { selectedCategorySelector } from '../../../app/categories/selectors'
+ import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
++import fields from '../../../app/language/translations/translationKeys'
++import { translateFunctionSelector } from '../../../app/language/selectors'
+ 
+ const Questions = () => {
+   const dispatch = useDispatch()
+   const navigation = useNavigation()
+   const questions = useSelector(questionsListSelector)
++  const t = useSelector(translateFunctionSelector)
+   const selectedCategory = useSelector(selectedCategorySelector)
+ 
+   const [searchValue, setSearchValue] = useState<string>('')
+@@ -45,13 +48,13 @@ const Questions = () => {
+         <ScreenTitle title={selectedCategory.title} />
+         <SearchInput
+           value={searchValue}
+-          placeholder={'Search questions'}
++          placeholder={t(fields.SEARCH_QUESTIONS)}
+           onChangeText={setSearchValue}
+         />
+         {filteredQuestions.length ? (
+           <QuestionsList questions={filteredQuestions} onQuestionPress={goToQuestionScreen} />
+         ) : (
+-          <EmptyListMessage message={'No questions were found'} />
++          <EmptyListMessage message={t(fields.NO_QUESTIONS_WERE_FOUND)} />
+         )}
+       </CategoryQuestionsScreenWrapper>
+       <FloatButton onPress={goToAddNewQuestionsScreen} />
+diff --git a/src/ui/screens/Register/Register.tsx b/src/ui/screens/Register/Register.tsx
+index 5912651..d369795 100644
+--- a/src/ui/screens/Register/Register.tsx
++++ b/src/ui/screens/Register/Register.tsx
+@@ -186,6 +186,7 @@ const Register = () => {
+                 title={t(fields.SIGN_UP)}
+                 onPress={handleSignUp}
+                 disabled={isSignUpButtonDisabled}
++                width={'180px'}
+               />
+             </RegisterButtonWrapper>
+             <LoginButtonWrapper>
+@@ -194,6 +195,7 @@ const Register = () => {
+                 onPress={goToSignIn}
+                 color={colors.primary.bg}
+                 textColor={colors.primary.text}
++                width={'180px'}
+               />
+             </LoginButtonWrapper>
+           </RegisterScreenContent>
+diff --git a/src/ui/screens/TopQuestions/TopQuestions.tsx b/src/ui/screens/TopQuestions/TopQuestions.tsx
+index 22d8609..ba5ae9c 100644
+--- a/src/ui/screens/TopQuestions/TopQuestions.tsx
++++ b/src/ui/screens/TopQuestions/TopQuestions.tsx
+@@ -10,6 +10,7 @@ import { getTopQuestions, selectQuestion, getComments } from '../../../app/quest
+ import { SCREEN_NAMES } from '../../../navigation/AppNavigator.constants'
+ import { TopQuestionsScreenWrapper } from './styles'
+ import ScreenTitle from '../../components/ScreenTitle/ScreenTitle'
++import fields from '../../../app/language/translations/translationKeys'
+ 
+ const TopQuestionsScreen = () => {
+   const dispatch = useDispatch()
+@@ -29,7 +30,7 @@ const TopQuestionsScreen = () => {
+   return (
+     <ScreenWrapper>
+       <TopQuestionsScreenWrapper>
+-        <ScreenTitle title="Top 10" />
++        <ScreenTitle title={t(fields.TOP_10)} />
+         <TopQuestionsList questions={questions} goToQuestion={goToQuestion} />
+       </TopQuestionsScreenWrapper>
+     </ScreenWrapper>

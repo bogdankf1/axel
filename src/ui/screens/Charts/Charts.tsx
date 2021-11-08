@@ -174,7 +174,7 @@ const Charts = () => {
         <ChartsInner>
           <ChartsSection>
             <ChartsSectionTitleBox>
-              <ChartsSectionTitle>{'Questions popularity'}</ChartsSectionTitle>
+              <ChartsSectionTitle>{t(fields.QUESTIONS_POPULARITY)}</ChartsSectionTitle>
             </ChartsSectionTitleBox>
             <PieChart
               data={formattedQuestionsData}
@@ -233,7 +233,7 @@ const Charts = () => {
           </ChartsSection>
           <ChartsSection>
             <ChartsSectionTitleBox>
-              <ChartsSectionTitle>{'Categories popularity'}</ChartsSectionTitle>
+              <ChartsSectionTitle>{t(fields.CATEGORIES_POPULARITY)}</ChartsSectionTitle>
             </ChartsSectionTitleBox>
             <PieChart
               data={formattedData}

@@ -7,11 +7,12 @@ interface AppButtonProps {
   disabled?: boolean
   color?: string
   textColor?: string
+  width?: string
 }
 
-const AppButton = ({ title, onPress, disabled, color, textColor }: AppButtonProps) => {
+const AppButton = ({ title, onPress, disabled, color, textColor, width }: AppButtonProps) => {
   return (
-    <AppButtonWrapper onPress={onPress} disabled={disabled} color={color}>
+    <AppButtonWrapper onPress={onPress} disabled={disabled} color={color} width={width}>
       <AppButtonText textColor={textColor}>{title}</AppButtonText>
     </AppButtonWrapper>
   )

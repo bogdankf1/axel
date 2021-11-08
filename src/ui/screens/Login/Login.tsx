@@ -110,6 +110,7 @@ const Login = () => {
               <AppButton
                 title={t(fields.SIGN_IN)}
                 onPress={signIn}
+                width={'180px'}
                 disabled={isSignInButtonDisabled}
               />
             </LoginButtonWrapper>
@@ -118,6 +119,7 @@ const Login = () => {
                 title={t(fields.SIGN_UP)}
                 onPress={goToSignUp}
                 color={colors.primary.bg}
+                width={'180px'}
                 textColor={colors.primary.text}
               />
             </RegisterButtonWrapper>

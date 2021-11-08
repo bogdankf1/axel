@@ -30,7 +30,7 @@ const AddNewQuestion = () => {
   return (
     <ScreenWrapper>
       <AddNewQuestionScreenWrapper>
-        <ScreenTitle title={'New question'} />
+        <ScreenTitle title={t(fields.NEW_QUESTION)} />
         <AddNewQuestionInputFieldBox>
           <AddNewQuestionInputField
             value={questionTitle}

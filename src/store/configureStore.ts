@@ -22,9 +22,9 @@ export const configureStore = (initialState = {}) => {
   const enhancer = composeEnhancers(...middlewares)
 
   const store = createStore(rootReducer, initialState, enhancer)
-  const locale = 'en'
+  const locale = 'ua'
 
-  const lang = translations[locale] ? locale : 'ua'
+  const lang = translations[locale] ? locale : 'en'
 
   store.dispatch(setLanguage(lang, translations[lang]))
   epicMiddleware.run(rootEpic)

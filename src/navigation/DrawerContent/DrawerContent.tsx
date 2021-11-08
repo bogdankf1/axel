@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../app/auth/actions'
 import { isLoggedInSelector } from '../../app/auth/selectors'
 import { changeLanguage } from '../../app/language/actions'
-import { currentLanguageSelector } from '../../app/language/selectors'
+import { currentLanguageSelector, translateFunctionSelector } from '../../app/language/selectors'
+import fields from '../../app/language/translations/translationKeys'
 import ConfirmModal from '../../ui/components/ConfirmModal/ConfirmModal'
 import { SCREEN_NAMES } from '../AppNavigator.constants'
 import {
@@ -29,6 +30,7 @@ const DrawerContent = ({ navigation }: Props) => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(isLoggedInSelector)
   const language = useSelector(currentLanguageSelector)
+  const t = useSelector(translateFunctionSelector)
 
   const goToPage = useCallback(
     (screenName: string) => {
@@ -63,37 +65,37 @@ const DrawerContent = ({ navigation }: Props) => {
             {!isLoggedIn ? (
               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.LOGIN)}>
                 <DrawerItemIcon />
-                <DrawerItemText>Sign In</DrawerItemText>
+                <DrawerItemText>{t(fields.SIGN_IN)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             {isLoggedIn ? (
               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.SELECT_CATEGORY)}>
                 <DrawerItemIcon />
-                <DrawerItemText>Categories</DrawerItemText>
+                <DrawerItemText>{t(fields.CATEGORIES)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             {isLoggedIn ? (
               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.TOP_QUESTIONS)}>
                 <DrawerItemIcon />
-                <DrawerItemText>Top 10</DrawerItemText>
+                <DrawerItemText>{t(fields.TOP_10)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             {isLoggedIn ? (
               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.PROFILE)}>
                 <DrawerItemIcon />
-                <DrawerItemText>Profile</DrawerItemText>
+                <DrawerItemText>{t(fields.PROFILE)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             {isLoggedIn ? (
               <DrawerItem onPress={() => goToPage(SCREEN_NAMES.CHARTS)}>
                 <DrawerItemIcon />
-                <DrawerItemText>Charts</DrawerItemText>
+                <DrawerItemText>{t(fields.CHARTS)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             {isLoggedIn ? (
               <DrawerItem onPress={openConfirmModal}>
                 <DrawerItemIcon />
-                <DrawerItemText>Logout</DrawerItemText>
+                <DrawerItemText>{t(fields.LOG_OUT)}</DrawerItemText>
               </DrawerItem>
             ) : null}
             <DrawerItem>
@@ -105,6 +107,9 @@ const DrawerContent = ({ navigation }: Props) => {
                 <DrawerLanguageItem onPress={() => onChangeLanguage('ua')}>
                   <DrawerLanguageItemText isActive={language === 'ua'}>UA</DrawerLanguageItemText>
                 </DrawerLanguageItem>
+                <DrawerLanguageItem onPress={() => onChangeLanguage('ru')}>
+                  <DrawerLanguageItemText isActive={language === 'ru'}>RU</DrawerLanguageItemText>
+                </DrawerLanguageItem>
               </DrawerLanguageItemBox>
             </DrawerItem>
           </DrawerItemsBox>
@@ -114,7 +119,7 @@ const DrawerContent = ({ navigation }: Props) => {
         isOpen={isConfirmModalOpen}
         onCancel={closeConfirmModal}
         onConfirm={onLogout}
-        text={'Are you sure want to logout?'}
+        text={t(fields.ARE_YOU_SURE_WANT_TO_LOGOUT)}
       />
     </>
   )

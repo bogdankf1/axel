@@ -186,6 +186,7 @@ const Register = () => {
                 title={t(fields.SIGN_UP)}
                 onPress={handleSignUp}
                 disabled={isSignUpButtonDisabled}
+                width={'180px'}
               />
             </RegisterButtonWrapper>
             <LoginButtonWrapper>
@@ -194,6 +195,7 @@ const Register = () => {
                 onPress={goToSignIn}
                 color={colors.primary.bg}
                 textColor={colors.primary.text}
+                width={'180px'}
               />
             </LoginButtonWrapper>
           </RegisterScreenContent>
